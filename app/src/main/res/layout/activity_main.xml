@@ -1,19 +1,211 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- ENCABEZADO ROJO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:background="#E53935"
+            android:gravity="center"
+            android:padding="20dp"
+            android:elevation="6dp">
+
+            <!-- Logo -->
+            <ImageView
+                android:id="@+id/imgLogoCinemax"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/logo_cinemax"
+                android:contentDescription="Logo CineMax"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="18dp" />
+
+            <!-- Texto -->
+            <TextView
+                android:id="@+id/tvCinemaxTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CineMax"
+                android:textColor="#FFFFFF"
+                android:textSize="46sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Línea decorativa -->
+        <View
+            android:layout_width="300dp"
+            android:layout_height="3dp"
+            android:background="#E53935"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="35dp" />
+
+        <!-- CONTENEDOR DE BOTONES -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <!-- BOTÓN: Buscar película -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde_sutil"
+                android:padding="10dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/icono_fondo"
+                    android:gravity="center"
+                    android:layout_marginEnd="15dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/camara" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnBuscarPelicula"
+                    android:layout_width="270dp"
+                    android:layout_height="65dp"
+                    android:text="Buscar película"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null" />
+            </LinearLayout>
+
+            <!-- BOTÓN: Buscar cine -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde_sutil"
+                android:padding="10dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/icono_fondo"
+                    android:gravity="center"
+                    android:layout_marginEnd="15dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/cine" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnBuscarCine"
+                    android:layout_width="270dp"
+                    android:layout_height="65dp"
+                    android:text="Buscar cine"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null" />
+            </LinearLayout>
+
+            <!-- BOTÓN: Ver precios -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde_sutil"
+                android:padding="10dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/icono_fondo"
+                    android:gravity="center"
+                    android:layout_marginEnd="15dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/precio" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnVerPrecios"
+                    android:layout_width="270dp"
+                    android:layout_height="65dp"
+                    android:text="Ver precios"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null" />
+            </LinearLayout>
+
+            <!-- BOTÓN: Horarios -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/borde_sutil"
+                android:padding="10dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/icono_fondo"
+                    android:gravity="center"
+                    android:layout_marginEnd="15dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/horario" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnHorarios"
+                    android:layout_width="270dp"
+                    android:layout_height="65dp"
+                    android:text="Horarios"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

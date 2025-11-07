@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CineApp">
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
             android:name=".RegistroUs"
             android:exported="false" />
         <activity
