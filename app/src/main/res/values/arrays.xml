@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_options">
+        <item>Todos</item>
+        <item>Por nombre</item>
+        <item>Por género</item>
+        <item>Por cine</item>
+    </string-array>
+</resources>
