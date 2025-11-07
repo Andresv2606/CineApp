@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 🎬 Título -->
+        <TextView
+            android:id="@+id/txtTituloPelicula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="El extraño mundo de Jack"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            android:paddingTop="20px"
+            android:paddingLeft="15px"/>
+
+        <!-- 🖼 Imagen -->
+        <ImageView
+            android:id="@+id/imgPelicula"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_pelicula"
+            android:contentDescription="@string/poster" />
+
+        <!-- 🧾 Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/txtLugar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ABC El Saler, Cines Nuevo Centro"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:paddingLeft="20px"/>
+
+            <TextView
+                android:id="@+id/txtHorario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lunes a Domingo / 4:30, 6:25, 8:20"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:paddingLeft="20px"/>
+
+            <TextView
+                android:id="@+id/txtClasificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para todo público"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:paddingLeft="20px"/>
+
+            <TextView
+                android:id="@+id/txtGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Animada, Halloween"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:paddingLeft="20px"/>
+        </LinearLayout>
+
+        <!-- 🎟 Botón -->
+        <Button
+            android:id="@+id/btnDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/cinemax_red"
+            android:text="Detalle"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
