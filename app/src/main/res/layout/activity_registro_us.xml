@@ -24,10 +24,12 @@
         android:id="@+id/imageView"
         android:layout_width="213dp"
         android:layout_height="206dp"
+        android:layout_marginStart="99dp"
         android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:srcCompat="@drawable/logo_cinemax"
-        tools:layout_editor_absoluteX="99dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_registrar"
