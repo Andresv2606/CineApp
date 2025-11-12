@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    tools:context=".contrasena">
+
+
+    <ImageButton
+        android:id="@+id/btnFlecha"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/flecha"
+        android:contentDescription="Volver"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp" />
+
+
+    <LinearLayout
+        android:id="@+id/contenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_centerInParent="true">
+
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Olvidé mi contraseña"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresa tu correo electrónico para recibir un enlace y restablecer tu contraseña."
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:paddingHorizontal="16dp" />
+
+
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:hint="Correo electrónico"
+            android:background="@drawable/rounded_edittext"
+            android:paddingHorizontal="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#AAAAAA"
+            android:inputType="textEmailAddress" />
+
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Enviar"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E53935"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" />
+
+
+        <TextView
+            android:id="@+id/tvVolverLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="¿Ya tienes una cuenta? Iniciar sesión"
+            android:textColor="#E53935"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

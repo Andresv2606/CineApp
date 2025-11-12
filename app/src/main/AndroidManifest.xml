@@ -11,30 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CineApp">
-        <activity
-            android:name=".VerPrecios"
-            android:exported="false" />
-        <activity
-            android:name=".BuscarCine"
-            android:exported="false" />
+
+        <!-- Actividad principal -->
         <activity
             android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".BuscarPelicula"
-            android:exported="false" />
-        <activity
-            android:name=".RegistroUs"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Otras actividades -->
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".RegistroUs" android:exported="false" />
+        <activity android:name=".contrasena" android:exported="false" />
+        <activity android:name=".BuscarPelicula" android:exported="false" />
+        <activity android:name=".BuscarCine" android:exported="false" />
+        <activity android:name=".VerPrecios" android:exported="false" />
+
     </application>
 
 </manifest>

@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,17 +13,15 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- ENCABEZADO ROJO -->
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:orientation="horizontal"
             android:background="#E53935"
-            android:gravity="center"
             android:padding="20dp"
             android:elevation="6dp">
 
-            <!-- Logo -->
+
             <ImageView
                 android:id="@+id/imgLogoCinemax"
                 android:layout_width="130dp"
@@ -29,9 +29,10 @@
                 android:src="@drawable/logo_cinemax"
                 android:contentDescription="Logo CineMax"
                 android:scaleType="fitCenter"
-                android:layout_marginEnd="18dp" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
 
-            <!-- Texto -->
+
             <TextView
                 android:id="@+id/tvCinemaxTitulo"
                 android:layout_width="wrap_content"
@@ -41,10 +42,25 @@
                 android:textSize="46sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-black"
-                android:gravity="center_vertical" />
-        </LinearLayout>
+                android:layout_toEndOf="@id/imgLogoCinemax"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp" />
 
-        <!-- Línea decorativa -->
+
+            <ImageButton
+                android:id="@+id/btn_salir"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="Apagar"
+                app:srcCompat="@android:drawable/ic_lock_power_off"
+                app:tint="@android:color/white" />
+
+        </RelativeLayout>
+
+
         <View
             android:layout_width="300dp"
             android:layout_height="3dp"
@@ -52,7 +68,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginBottom="35dp" />
 
-        <!-- CONTENEDOR DE BOTONES -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +76,7 @@
             android:gravity="center"
             android:padding="10dp">
 
-            <!-- BOTÓN: Buscar película -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +113,7 @@
                     android:stateListAnimator="@null" />
             </LinearLayout>
 
-            <!-- BOTÓN: Buscar cine -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,7 +150,7 @@
                     android:stateListAnimator="@null" />
             </LinearLayout>
 
-            <!-- BOTÓN: Ver precios -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,7 +187,7 @@
                     android:stateListAnimator="@null" />
             </LinearLayout>
 
-            <!-- BOTÓN: Horarios -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
