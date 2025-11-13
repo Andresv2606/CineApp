@@ -3,12 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_light"
     tools:context=".VerPrecios">
 
-    <!-- 🔴 HEADER -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- 🏷️ Título -->
+
     <TextView
         android:id="@+id/tvTituloPrecios"
         android:layout_width="wrap_content"
@@ -55,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- 📋 Lista de precios (RecyclerView) -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPrecios"
         android:layout_width="0dp"
@@ -68,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_precio"/>
 
-    <!-- 🎟️ Botón Precios por Cine -->
+
     <Button
         android:id="@+id/btnPreciosPorCine"
         android:layout_width="wrap_content"
@@ -81,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ⬅️ Botón Volver -->
+
     <Button
         android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
