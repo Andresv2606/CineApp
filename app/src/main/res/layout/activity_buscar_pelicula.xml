@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_light"
-    tools:context=".MainActivity">
+    tools:context=".BuscarPelicula">
 
     <!-- 🔴 ENCABEZADO -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,103 +19,100 @@
         android:paddingEnd="16dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- LOGO -->
         <ImageView
             android:id="@+id/logo"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:contentDescription="@string/logo"
             android:src="@drawable/logo_cinemax"
+            android:contentDescription="@string/logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <!-- TÍTULO -->
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CineMax"
-            android:textColor="@android:color/white"
             android:textSize="28sp"
             android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toEndOf="@id/logo"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- 🔍 CONTENIDO PRINCIPAL -->
+
+    <!-- 🔎 BARRA DE BÚSQUEDA -->
     <LinearLayout
-        android:id="@+id/containerMain"
+        android:id="@+id/layoutBusqueda"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintBottom_toTopOf="@id/btnFlecha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- 🔎 Barra de búsqueda -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/txt_buscarPelicula"
+            android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/txt_buscarPelicula"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_oval"
-                android:hint="Buscar"
-                android:inputType="text"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:textColor="@color/text_primary" />
-
-            <Button
-                android:id="@+id/btnBuscarPel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/cinemax_red"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:text="Buscar"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
-
-        <!-- 🔽 Filtro -->
-        <Spinner
-            android:id="@+id/btnBuscarCat"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginBottom="16dp"
-            android:entries="@array/filter_options" />
-
-        <!-- 🎞 RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPeliculas"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
             android:layout_weight="1"
-            android:clipToPadding="false"
-            tools:listitem="@layout/item_pelicula" />
+            android:background="@drawable/edittext_oval"
+            android:hint="Buscar"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/text_primary"/>
+
+        <Button
+            android:id="@+id/btnBuscarPel"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Buscar"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/cinemax_red"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"/>
     </LinearLayout>
 
-    <!-- ⬅️ BOTÓN VOLVER -->
+
+    <!-- 🔽 SPINNER -->
+    <Spinner
+        android:id="@+id/btnBuscarCat"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:entries="@array/filter_options"
+        app:layout_constraintTop_toBottomOf="@id/layoutBusqueda"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <!-- 🎞 RECYCLERVIEW CON SCROLL FUNCIONAL -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPeliculas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_pelicula"
+        app:layout_constraintTop_toBottomOf="@id/btnBuscarCat"
+        app:layout_constraintBottom_toTopOf="@id/btnFlecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- 🔙 BOTÓN VOLVER -->
     <Button
         android:id="@+id/btnFlecha"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:text="Volver"
-        android:layout_margin="12dp"
         android:backgroundTint="@android:color/white"
         android:textColor="@color/cinemax_red"
+        android:layout_margin="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,32 +1,56 @@
 package com.example.cineapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.util.Log;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class VerPrecios extends AppCompatActivity {
+
+    RecyclerView rvPrecios;
+    PrecioAdapter adapter;
+    List<Precio> listaPrecios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ver_precios);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        Button btnVolver = findViewById(R.id.btnVolver);
-        btnVolver.setOnClickListener(v -> {
-            Intent intent = new Intent(VerPrecios.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+
+        rvPrecios = findViewById(R.id.rvPrecios);
+        rvPrecios.setLayoutManager(new LinearLayoutManager(this));
+
+        cargarPrecios();
+
+        findViewById(R.id.btnVolver).setOnClickListener(v -> finish());
+    }
+
+    private void cargarPrecios() {
+        RetrofitClient.getApiService().getPrecios().enqueue(new Callback<List<Precio>>() {
+            @Override
+            public void onResponse(Call<List<Precio>> call, Response<List<Precio>> response) {
+
+                if (response.body() == null) {
+                    Log.e("API", "Respuesta vacía");
+                    return;
+                }
+
+                listaPrecios = response.body();
+                adapter = new PrecioAdapter(listaPrecios);
+                rvPrecios.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Precio>> call, Throwable t) {
+                Log.e("API", "Error precios: " + t.getMessage());
+            }
         });
     }
 }

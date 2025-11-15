@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,7 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CineApp">
-
 
         <activity
             android:name=".Login"
@@ -22,15 +25,13 @@
             </intent-filter>
         </activity>
 
-
-        <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".RegistroUs" android:exported="false" />
-        <activity android:name=".contrasena" android:exported="false" />
-        <activity android:name=".BuscarPelicula" android:exported="false" />
-        <activity android:name=".BuscarCine" android:exported="false" />
-        <activity android:name=".VerPrecios" android:exported="false" />
-        <activity android:name=".Horario" android:exported="false" />
-
+        <activity android:name=".MainActivity" android:exported="false"/>
+        <activity android:name=".RegistroUs" android:exported="false"/>
+        <activity android:name=".contrasena" android:exported="false"/>
+        <activity android:name=".BuscarPelicula" android:exported="false"/>
+        <activity android:name=".BuscarCine" android:exported="false"/>
+        <activity android:name=".VerPrecios" android:exported="false"/>
+        <activity android:name=".Horario" android:exported="false"/>
 
     </application>
 
