@@ -17,4 +17,7 @@ public interface ApiService {
 
     @POST("auth")
     Call<LoginResponse> login(@Body LoginRequest request);
+
+    @POST("personas")
+    Call<RegistroResponse> registrarPersona(@Body Persona persona);
 }

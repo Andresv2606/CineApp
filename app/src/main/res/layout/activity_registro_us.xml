@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".RegistroUs">
 
     <TextView
@@ -38,8 +39,8 @@
         android:id="@+id/imageView"
         android:layout_width="213dp"
         android:layout_height="206dp"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:srcCompat="@drawable/logo_cinemax"
@@ -49,20 +50,21 @@
         android:id="@+id/btn_registrar"
         android:layout_width="193dp"
         android:layout_height="47dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="196dp"
         android:backgroundTint="#C72A2A"
         android:text="Registrarse"
         android:textColorLink="#C72A2A"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_fecNac"
+        app:layout_constraintTop_toBottomOf="@+id/txt_usuarioReg"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/txt_nombreReg"
-        android:layout_width="281dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="70dp"
+        android:layout_width="143dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
         android:hint="Nombre"
@@ -71,42 +73,84 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
+        android:id="@+id/txt_apellidoReg"
+        android:layout_width="136dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_oval"
+        android:ems="10"
+        android:hint="Apellido"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@+id/txt_nombreReg"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/txt_emailReg"
+        android:layout_width="297dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_oval"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_apellidoReg" />
+
+    <EditText
         android:id="@+id/txt_usuarioReg"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="295dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombreReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_emailReg" />
 
     <EditText
-        android:id="@+id/txt_passReg"
-        android:layout_width="279dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="15dp"
+        android:id="@+id/txt_contraseñaReg"
+        android:layout_width="297dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_usuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_usuarioReg"
+        tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_fecNac"
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/txt_documentoReg"
+        android:layout_width="301dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
-        android:hint="Fecha de nacimiento"
-        android:inputType="date"
+        android:hint="Documento"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_passReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_contraseñaReg"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/txt_telefonoReg"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_oval"
+        android:ems="10"
+        android:hint="Telefono"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_documentoReg"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
