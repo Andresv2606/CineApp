@@ -1,6 +1,7 @@
 package com.example.cineapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -77,6 +78,13 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this,
                         "Bienvenido " + user.getNombre() + " " + user.getApellido(),
                         Toast.LENGTH_LONG).show();
+
+                SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+
+                editor.putInt("id_persona", user.getId_persona());
+                editor.putString("nombre", user.getNombre());
+                editor.putString("apellido", user.getApellido());
 
                 // Ir a pantalla principal
                 Intent intent = new Intent(Login.this, MainActivity.class);
