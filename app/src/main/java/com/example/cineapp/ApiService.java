@@ -7,6 +7,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("peliculas")
@@ -20,4 +21,10 @@ public interface ApiService {
 
     @POST("personas")
     Call<RegistroResponse> registrarPersona(@Body Persona persona);
+
+    @GET("cines")
+    Call<List<Cine>> getCines();
+
+    @GET("cines/buscarNombre")
+    Call<List<Cine>> buscarCine(@Query("nombre") String nombre);
 }
