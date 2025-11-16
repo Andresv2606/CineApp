@@ -27,11 +27,12 @@
 
         <activity android:name=".MainActivity" android:exported="false"/>
         <activity android:name=".RegistroUs" android:exported="false"/>
-        <activity android:name=".contrasena" android:exported="false"/>
+        <activity android:name=".Contrasena" android:exported="false"/>
         <activity android:name=".BuscarPelicula" android:exported="false"/>
         <activity android:name=".BuscarCine" android:exported="false"/>
         <activity android:name=".VerPrecios" android:exported="false"/>
         <activity android:name=".Horario" android:exported="false"/>
+        <activity android:name=".Boleto" android:exported="false"/>
 
     </application>
 

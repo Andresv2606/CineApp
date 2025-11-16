@@ -23,12 +23,5 @@
         android:textColor="@color/cinemax_red"
         android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/txtObservacionBol"
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:gravity="end"/>
 
 </LinearLayout>

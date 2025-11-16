@@ -32,7 +32,7 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
 
         holder.descripcion.setText(p.getDescripcion());
         holder.valor.setText("$ " + p.getValor());
-        holder.observacion.setText("Cine ID: " + p.getId_cine());
+
     }
 
     @Override
@@ -42,14 +42,15 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView descripcion, valor, observacion;
+        TextView descripcion, valor;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             descripcion = itemView.findViewById(R.id.txtTipoBol);
             valor = itemView.findViewById(R.id.txtPrecioBol);
-            observacion = itemView.findViewById(R.id.txtObservacionBol);
+            // ❗ ¡ELIMINAR! ya NO existe en el XML
+            // observacion = itemView.findViewById(R.id.txtObservacionBol);
         }
     }
 }
