@@ -98,14 +98,14 @@
         android:clipToPadding="false"
         tools:listitem="@layout/item_pelicula"
         app:layout_constraintTop_toBottomOf="@id/btnBuscarCat"
-        app:layout_constraintBottom_toTopOf="@id/btnFlecha"
+        app:layout_constraintBottom_toTopOf="@id/btnVolverBusPel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <!-- 🔙 BOTÓN VOLVER -->
     <Button
-        android:id="@+id/btnFlecha"
+        android:id="@+id/btnVolverBusPel"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:text="Volver"

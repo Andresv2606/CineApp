@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class contrasena extends AppCompatActivity {
 
@@ -22,7 +18,7 @@ public class contrasena extends AppCompatActivity {
         setContentView(R.layout.activity_contrasena);
 
 
-        btnFlecha = findViewById(R.id.btnFlecha);
+        btnFlecha = findViewById(R.id.btnVolverBusPel);
         tvVolverLogin = findViewById(R.id.tvVolverLogin);
 
 

@@ -1,5 +1,6 @@
 package com.example.cineapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,7 @@ public class BuscarPelicula extends AppCompatActivity {
     RecyclerView rvPeliculas;
     PeliculaAdapter adapter;
     List<Pelicula> listaOriginal;
+    Button btnDetalle, btnBuscar, btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +38,24 @@ public class BuscarPelicula extends AppCompatActivity {
         cargarPeliculas();
 
         // --- BOTÓN BUSCAR ---
-        Button btnBuscar = findViewById(R.id.btnBuscarPel);
+        btnDetalle = findViewById(R.id.btnDetalle);
+        btnBuscar = findViewById(R.id.btnBuscarPel);
+        btnVolver = findViewById(R.id.btnVolverBusPel);
+
         EditText txtBuscar = findViewById(R.id.txt_buscarPelicula);
 
         btnBuscar.setOnClickListener(v -> {
             String texto = txtBuscar.getText().toString().toLowerCase();
-
             List<Pelicula> filtrada = new ArrayList<>();
             for (Pelicula p : listaOriginal) {
                 if (p.getTitulo().toLowerCase().contains(texto)) {
                     filtrada.add(p);
                 }
             }
-
             adapter.actualizarLista(filtrada);
         });
+
+        btnVolver.setOnClickListener(v -> finish());
     }
 
     private void cargarPeliculas() {

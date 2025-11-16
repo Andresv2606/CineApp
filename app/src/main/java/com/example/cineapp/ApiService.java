@@ -25,6 +25,6 @@ public interface ApiService {
     @GET("cines")
     Call<List<Cine>> getCines();
 
-    @GET("cines/buscarNombre")
+    @GET("cines/buscar")
     Call<List<Cine>> buscarCine(@Query("nombre") String nombre);
 }

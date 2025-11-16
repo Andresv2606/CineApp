@@ -107,7 +107,6 @@ public class BuscarCine extends AppCompatActivity {
                     Toast.makeText(BuscarCine.this, "No se encontraron cines", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<List<Cine>> call, Throwable t) {
                 Toast.makeText(BuscarCine.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
