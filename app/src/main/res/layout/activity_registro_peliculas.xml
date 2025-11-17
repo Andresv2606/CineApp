@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
         android:layout_marginTop="44dp"
-        android:text="REGISTRO"
+        android:text="Pelicula"
         android:textColor="#000000"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -50,77 +50,37 @@
         android:id="@+id/btn_registrar"
         android:layout_width="193dp"
         android:layout_height="47dp"
-        android:layout_marginStart="108dp"
         android:layout_marginTop="196dp"
         android:backgroundTint="#C72A2A"
-        android:text="Registrarse"
+        android:text="Registrar Pelicula"
         android:textColorLink="#C72A2A"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_nombreReg"
-        android:layout_width="143dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edittext_oval"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/txt_apellidoReg"
-        android:layout_width="136dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edittext_oval"
-        android:ems="10"
-        android:hint="Apellido"
-        android:inputType="text"
-        app:layout_constraintStart_toEndOf="@+id/txt_nombreReg"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/txt_emailReg"
-        android:layout_width="297dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_oval"
-        android:ems="10"
-        android:hint="Correo"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_apellidoReg" />
-
-    <EditText
         android:id="@+id/txt_nombre"
         android:layout_width="295dp"
         android:layout_height="40dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="12dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
-        android:hint="Usuario"
+        android:hint="Titulo"
         android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_emailReg" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/txt_genero"
         android:layout_width="297dp"
         android:layout_height="43dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="Genero"
         android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
         tools:ignore="MissingConstraints" />
@@ -129,28 +89,15 @@
         android:id="@+id/txt_documentoReg"
         android:layout_width="301dp"
         android:layout_height="45dp"
-        android:layout_marginStart="58dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
-        android:hint="Documento"
+        android:hint="Clasificacion"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btn_registrar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_genero"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txt_telefonoReg"
-        android:layout_width="300dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edittext_oval"
-        android:ems="10"
-        android:hint="Telefono"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_documentoReg"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

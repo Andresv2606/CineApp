@@ -4,12 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,21 +25,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        btnBuscarPelicula = findViewById(R.id.btnBuscarPelicula);
+        btnBuscarPelicula = findViewById(R.id.btnPelicula);
         btnBuscarPelicula.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, BuscarPelicula.class);
             startActivity(intent);
         });
 
 
-        btnBuscarCine = findViewById(R.id.btnBuscarCine);
+        btnBuscarCine = findViewById(R.id.btnCine);
         btnBuscarCine.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, BuscarCine.class);
             startActivity(intent);
         });
 
 
-        btnVerPrecios = findViewById(R.id.btnVerPrecios);
+        btnVerPrecios = findViewById(R.id.btnPrecios);
         btnVerPrecios.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, VerPrecios.class);
             startActivity(intent);

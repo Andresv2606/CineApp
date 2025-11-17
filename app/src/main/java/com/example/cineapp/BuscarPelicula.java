@@ -1,7 +1,10 @@
 package com.example.cineapp;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,7 +26,7 @@ public class BuscarPelicula extends AppCompatActivity {
     RecyclerView rvPeliculas;
     PeliculaAdapter adapter;
     List<Pelicula> listaOriginal;
-    Button btnDetalle, btnBuscar, btnVolver;
+    Button btnDetalle, btnBuscar, btnVolver, btnAgregarPelicula;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +41,21 @@ public class BuscarPelicula extends AppCompatActivity {
         cargarPeliculas();
 
         // --- BOTÓN BUSCAR ---
-        btnDetalle = findViewById(R.id.btnDetalle);
+        //btnDetalle = findViewById(R.id.btnDetalle);
         btnBuscar = findViewById(R.id.btnBuscarPel);
         btnVolver = findViewById(R.id.btnVolverBusPel);
+
+        btnAgregarPelicula = findViewById(R.id.btnAddPelicula);
+
+        SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
+        int id_rol = prefs.getInt("id_rol", 2);
+        Log.d("PREFS", "Leyendo id_rol: " + id_rol);
+
+
+        // Ocultar Boton dependiendo el rol
+        if ( id_rol != 1 ){
+            btnAgregarPelicula.setVisibility(View.GONE);
+        }
 
         EditText txtBuscar = findViewById(R.id.txt_buscarPelicula);
 
@@ -53,6 +68,12 @@ public class BuscarPelicula extends AppCompatActivity {
                 }
             }
             adapter.actualizarLista(filtrada);
+        });
+
+        btnAgregarPelicula.setOnClickListener(v -> {
+            Intent intent = new Intent(BuscarPelicula.this, RegistroPeliculas.class);
+            startActivity(intent);
+            finish();
         });
 
         btnVolver.setOnClickListener(v -> finish());

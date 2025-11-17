@@ -38,7 +38,7 @@ public class BuscarCine extends AppCompatActivity {
         setContentView(R.layout.activity_buscar_cine);
 
         txt_BuscarCine = findViewById(R.id.txt_BuscarCine);
-        btnBuscarCine = findViewById(R.id.btnBuscarCine);
+        btnBuscarCine = findViewById(R.id.btnCine);
         btnVolver = findViewById(R.id.btnVolver);
         rvCines = findViewById(R.id.rvCines);
 

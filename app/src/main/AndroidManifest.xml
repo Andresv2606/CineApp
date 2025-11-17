@@ -33,6 +33,7 @@
         <activity android:name=".VerPrecios" android:exported="false"/>
         <activity android:name=".Horario" android:exported="false"/>
         <activity android:name=".Boleto" android:exported="false"/>
+        <activity android:name=".RegistroPeliculas" android:exported="false"/>
 
     </application>
 

@@ -62,7 +62,7 @@
             android:paddingStart="12dp"/>
 
         <Button
-            android:id="@+id/btnBuscarCine"
+            android:id="@+id/btnCine"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="Buscar"

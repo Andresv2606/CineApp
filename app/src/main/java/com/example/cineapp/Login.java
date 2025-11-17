@@ -83,24 +83,16 @@ public class Login extends AppCompatActivity {
                 SharedPreferences.Editor editorPrefs = prefs.edit();
 
                 editorPrefs.putInt("id_persona", user.getId_persona());
+                editorPrefs.putInt("id_rol", user.getId_rol());
+                Log.d("PREFS", "Guardando id_rol: " + user.getId_rol());
+
                 editorPrefs.putString("nombre", user.getNombre());
                 editorPrefs.putString("apellido", user.getApellido());
                 editorPrefs.putString("email", user.getEmail());
                 editorPrefs.putString("telefono", user.getTelefono());
+                editorPrefs.apply(); // Guardar
 
-                Intent intent = null;
-
-                if(user.getId_rol() == 1){
-                    intent = new Intent(Login.this, MainActivity.class);
-                } else if (user.getId_rol() == 2) {
-                    intent = new Intent(Login.this, MainActivity.class);
-                } else {
-                    Toast.makeText(Login.this, "Rol desconocido", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // Ir a pantalla principal
-
+                Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
