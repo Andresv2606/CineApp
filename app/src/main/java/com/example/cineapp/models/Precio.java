@@ -4,13 +4,14 @@ public class Precio {
 
     private String id_precio;
     private String descripcion;
-    private String id_cine;
-    private String valor;
+    private int id_cine;
+    private double valor;
 
     // Constructor SOLO para registrar precio
-    public Precio(String descripcion, String valor) {
+    public Precio(String descripcion, double valor, int id_cine) {
         this.descripcion = descripcion;
         this.valor = valor;
+        this.id_cine = id_cine;
     }
 
     public String getId_precio() {
@@ -21,11 +22,11 @@ public class Precio {
         return descripcion;
     }
 
-    public String getId_cine() {
+    public int getId_cine() {
         return id_cine;
     }
 
-    public String getValor() {
+    public double getValor() {
         return valor;
     }
 }

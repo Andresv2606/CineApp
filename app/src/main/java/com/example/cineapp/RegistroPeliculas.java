@@ -35,12 +35,12 @@ public class RegistroPeliculas extends AppCompatActivity {
         txt_nombreReg = findViewById(R.id.txt_nombreReg);
         txt_apellidoReg = findViewById(R.id.txt_apellidoReg);
         txt_emailReg = findViewById(R.id.txt_emailReg);
-        txt_usuarioReg = findViewById(R.id.txt_nombre);
+        txt_usuarioReg = findViewById(R.id.txt_tituloPel);
         txt_contraseñaReg = findViewById(R.id.txt_genero);
-        txt_documentoReg = findViewById(R.id.txt_documentoReg);
+        txt_documentoReg = findViewById(R.id.txt_clasificacion);
         txt_telefonoReg = findViewById(R.id.txt_telefonoReg);
 
-        btn_registrar = findViewById(R.id.btn_registrar);
+        btn_registrar = findViewById(R.id.btn_registrarPel);
         btnVolver = findViewById(R.id.btnVolver);
 
         btn_registrar.setOnClickListener(v -> registrarUsuario());

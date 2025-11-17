@@ -47,7 +47,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btn_registrar"
+        android:id="@+id/btn_registrarPel"
         android:layout_width="193dp"
         android:layout_height="47dp"
         android:layout_marginTop="196dp"
@@ -56,11 +56,11 @@
         android:textColorLink="#C72A2A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tituloPel"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_nombre"
+        android:id="@+id/txt_tituloPel"
         android:layout_width="295dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_oval"
@@ -75,27 +75,27 @@
         android:id="@+id/txt_genero"
         android:layout_width="297dp"
         android:layout_height="43dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
         android:hint="Genero"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
+        app:layout_constraintTop_toBottomOf="@id/txt_tituloPel"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_documentoReg"
-        android:layout_width="301dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/txt_clasificacion"
+        android:layout_width="295dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edittext_oval"
         android:ems="10"
         android:hint="Clasificacion"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btn_registrar"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_genero"
         tools:ignore="MissingConstraints" />

@@ -47,7 +47,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btn_registrar"
+        android:id="@+id/btn_registrarPel"
         android:layout_width="193dp"
         android:layout_height="47dp"
         android:layout_marginStart="108dp"
@@ -56,7 +56,7 @@
         android:text="Registrarse"
         android:textColorLink="#C72A2A"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tituloPel"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_apellidoReg" />
 
     <EditText
-        android:id="@+id/txt_nombre"
+        android:id="@+id/txt_tituloPel"
         android:layout_width="295dp"
         android:layout_height="40dp"
         android:layout_marginStart="56dp"
@@ -122,11 +122,11 @@
         android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tituloPel"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_documentoReg"
+        android:id="@+id/txt_clasificacion"
         android:layout_width="301dp"
         android:layout_height="45dp"
         android:layout_marginStart="58dp"
@@ -150,7 +150,7 @@
         android:hint="Telefono"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_documentoReg"
+        app:layout_constraintTop_toBottomOf="@+id/txt_clasificacion"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

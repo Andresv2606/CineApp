@@ -7,6 +7,7 @@ import com.example.cineapp.models.Pelicula;
 import com.example.cineapp.models.Persona;
 import com.example.cineapp.models.Precio;
 import com.example.cineapp.models.RegistroResponse;
+import com.example.cineapp.models.PrecioResponse;
 
 import java.util.List;
 
@@ -23,8 +24,10 @@ public interface ApiService {
 
     @GET("precios")
     Call<List<Precio>> getPrecios();
-    @POST("precios/insertar")
-    Call<ResponseBody> insertarPrecio(@Body Precio precio);
+
+    @POST("precios")
+    Call<PrecioResponse> registrarPrecio(@Body Precio precio);
+
     @GET("precios")
     Call<List<Precio>> getPrecios(@Query("id_cine") String idCine);
 
