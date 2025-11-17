@@ -14,6 +14,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -23,8 +24,11 @@ public interface ApiService {
 
     @GET("precios")
     Call<List<Precio>> getPrecios();
-    @POST("precios/insertar")
+    @POST("precios")
+    @Headers("Rol: 1")
     Call<ResponseBody> insertarPrecio(@Body Precio precio);
+
+
     @GET("precios")
     Call<List<Precio>> getPrecios(@Query("id_cine") String idCine);
 
