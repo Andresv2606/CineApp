@@ -47,7 +47,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btn_registrarPel"
+        android:id="@+id/btn_registrar"
         android:layout_width="193dp"
         android:layout_height="47dp"
         android:layout_marginTop="196dp"
@@ -56,11 +56,11 @@
         android:textColorLink="#C72A2A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_tituloPel"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_tituloPel"
+        android:id="@+id/txt_nombre"
         android:layout_width="295dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_oval"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_tituloPel"
+        app:layout_constraintTop_toBottomOf="@id/txt_nombre"
         tools:ignore="MissingConstraints" />
 
     <EditText

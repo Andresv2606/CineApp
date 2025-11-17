@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cineapp.models.Pelicula;
+import com.example.cineapp.models.PeliculaResponse;
 import com.example.cineapp.models.Persona;
 import com.example.cineapp.models.RegistroResponse;
 
@@ -21,10 +23,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegistroPeliculas extends AppCompatActivity {
-
     Button btn_registrar;
     ImageButton btnVolver;
-    EditText txt_nombreReg, txt_apellidoReg, txt_emailReg, txt_usuarioReg, txt_contraseñaReg, txt_documentoReg, txt_telefonoReg;
+    EditText txt_nombre, txt_genero, txt_clasificacion;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,18 +33,14 @@ public class RegistroPeliculas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_peliculas);
 
-        txt_nombreReg = findViewById(R.id.txt_nombreReg);
-        txt_apellidoReg = findViewById(R.id.txt_apellidoReg);
-        txt_emailReg = findViewById(R.id.txt_emailReg);
-        txt_usuarioReg = findViewById(R.id.txt_tituloPel);
-        txt_contraseñaReg = findViewById(R.id.txt_genero);
-        txt_documentoReg = findViewById(R.id.txt_clasificacion);
-        txt_telefonoReg = findViewById(R.id.txt_telefonoReg);
+        txt_nombre = findViewById(R.id.txt_nombre);
+        txt_genero = findViewById(R.id.txt_genero);
+        txt_clasificacion = findViewById(R.id.txt_clasificacion);
 
-        btn_registrar = findViewById(R.id.btn_registrarPel);
+        btn_registrar = findViewById(R.id.btn_registrar);
         btnVolver = findViewById(R.id.btnVolver);
 
-        btn_registrar.setOnClickListener(v -> registrarUsuario());
+        btn_registrar.setOnClickListener(v -> registrarPelicula());
 
         btnVolver.setOnClickListener(v -> {
             Intent intent = new Intent(RegistroPeliculas.this, BuscarPelicula.class);
@@ -52,22 +49,18 @@ public class RegistroPeliculas extends AppCompatActivity {
         });
     }
 
-    private void registrarUsuario() {
-        Persona persona = new Persona(
-                txt_nombreReg.getText().toString(),
-                txt_apellidoReg.getText().toString(),
-                txt_emailReg.getText().toString(),
-                2, // Rol por defecto
-                txt_usuarioReg.getText().toString(),
-                txt_contraseñaReg.getText().toString(),
-                txt_documentoReg.getText().toString(),
-                txt_telefonoReg.getText().toString()
+    private void registrarPelicula() {
+        Pelicula pelicula = new Pelicula(
+                txt_nombre.getText().toString(),
+                txt_genero.getText().toString(),
+                txt_clasificacion.getText().toString(),
+                1
         );
 
-        RetrofitClient.getApiService().registrarPersona(persona)
-                .enqueue(new Callback<RegistroResponse>() {
+        RetrofitClient.getApiService().registrarPelicula(pelicula)
+                .enqueue(new Callback<PeliculaResponse>() {
                     @Override
-                    public void onResponse(Call<RegistroResponse> call, Response<RegistroResponse> response) {
+                    public void onResponse(Call<PeliculaResponse> call, Response<PeliculaResponse> response) {
 
                         try {
                             Log.e("API_ERROR", "Error: " + response.errorBody().string());
@@ -81,23 +74,23 @@ public class RegistroPeliculas extends AppCompatActivity {
                             return;
                         }
 
-                        RegistroResponse res = response.body();
+                        PeliculaResponse res = response.body();
                         Toast.makeText(RegistroPeliculas.this,
                                 res.getMessage(), Toast.LENGTH_LONG).show();
 
                         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                            Intent intent = new Intent(RegistroPeliculas.this, MainActivity.class);
+                            Intent intent = new Intent(RegistroPeliculas.this, BuscarPelicula.class);
                             startActivity(intent);
                             finish(); // Evita que regresen al registro usando "atrás"
                         }, 1200);
-
-
                     }
 
                     @Override
-                    public void onFailure(Call<RegistroResponse> call, Throwable t) {
+                    public void onFailure(Call<PeliculaResponse> call, Throwable t) {
                         Toast.makeText(RegistroPeliculas.this,
                                 "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+                        System.out.println("Error de conexión: " + t.getMessage());
                     }
                 });
     }

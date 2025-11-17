@@ -4,6 +4,7 @@ import com.example.cineapp.models.Cine;
 import com.example.cineapp.models.LoginRequest;
 import com.example.cineapp.models.LoginResponse;
 import com.example.cineapp.models.Pelicula;
+import com.example.cineapp.models.PeliculaResponse;
 import com.example.cineapp.models.Persona;
 import com.example.cineapp.models.Precio;
 import com.example.cineapp.models.RegistroResponse;
@@ -21,6 +22,9 @@ import retrofit2.http.Query;
 public interface ApiService {
     @GET("peliculas")
     Call<List<Pelicula>> getPeliculas();
+
+    @POST("peliculas")
+    Call<PeliculaResponse> registrarPelicula(@Body Pelicula pelicula);
 
     @GET("precios")
     Call<List<Precio>> getPrecios();

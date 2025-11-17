@@ -36,12 +36,12 @@ public class RegistroUs extends AppCompatActivity {
         txt_nombreReg = findViewById(R.id.txt_nombreReg);
         txt_apellidoReg = findViewById(R.id.txt_apellidoReg);
         txt_emailReg = findViewById(R.id.txt_emailReg);
-        txt_usuarioReg = findViewById(R.id.txt_tituloPel);
+        txt_usuarioReg = findViewById(R.id.txt_nombre);
         txt_contraseñaReg = findViewById(R.id.txt_genero);
         txt_documentoReg = findViewById(R.id.txt_clasificacion);
         txt_telefonoReg = findViewById(R.id.txt_telefonoReg);
 
-        btn_registrar = findViewById(R.id.btn_registrarPel);
+        btn_registrar = findViewById(R.id.btn_registrar);
         btnVolver = findViewById(R.id.btnVolver);
 
         btn_registrar.setOnClickListener(v -> registrarUsuario());
