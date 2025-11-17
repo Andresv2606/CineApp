@@ -1,12 +1,19 @@
 package com.example.cineapp;
 
+import com.example.cineapp.models.Cine;
+import com.example.cineapp.models.LoginRequest;
+import com.example.cineapp.models.LoginResponse;
+import com.example.cineapp.models.Pelicula;
+import com.example.cineapp.models.Persona;
+import com.example.cineapp.models.Precio;
+import com.example.cineapp.models.RegistroResponse;
+
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {

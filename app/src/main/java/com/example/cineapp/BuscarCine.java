@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cineapp.adapters.CineAdapter;
-import com.example.cineapp.Cine;
-import com.example.cineapp.Precio;
-import com.example.cineapp.RetrofitClient;
+import com.example.cineapp.models.Cine;
+import com.example.cineapp.models.Precio;
 
 import java.util.ArrayList;
 import java.util.List;

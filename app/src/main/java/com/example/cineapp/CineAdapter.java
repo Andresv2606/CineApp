@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cineapp.PrecioAdapter;
 import com.example.cineapp.R;
-import com.example.cineapp.Cine;
-import com.example.cineapp.Precio;
+import com.example.cineapp.models.Cine;
+import com.example.cineapp.models.Precio;
 
 import java.util.List;
 

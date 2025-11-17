@@ -1,4 +1,4 @@
-package com.example.cineapp;
+package com.example.cineapp.models;
 
 import java.util.List;
 

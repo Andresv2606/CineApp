@@ -1,4 +1,4 @@
-package com.example.cineapp;
+package com.example.cineapp.models;
 
 public class LoginResponse {
     private String message;

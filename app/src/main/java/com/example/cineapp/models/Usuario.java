@@ -1,4 +1,4 @@
-package com.example.cineapp;
+package com.example.cineapp.models;
 
 public class Usuario {
     private int id_login;

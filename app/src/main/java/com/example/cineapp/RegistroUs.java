@@ -7,15 +7,15 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.cineapp.models.Persona;
+import com.example.cineapp.models.RegistroResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

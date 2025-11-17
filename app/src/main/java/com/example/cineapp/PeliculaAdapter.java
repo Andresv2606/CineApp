@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cineapp.models.Pelicula;
+
 import java.util.List;
 
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> {

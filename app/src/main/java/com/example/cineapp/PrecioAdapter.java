@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cineapp.models.Precio;
+
 import java.util.List;
 
 public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder> {

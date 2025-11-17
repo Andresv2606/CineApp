@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cineapp.models.LoginRequest;
+import com.example.cineapp.models.LoginResponse;
+import com.example.cineapp.models.Usuario;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,8 +88,19 @@ public class Login extends AppCompatActivity {
                 editorPrefs.putString("email", user.getEmail());
                 editorPrefs.putString("telefono", user.getTelefono());
 
+                Intent intent = null;
+
+                if(user.getId_rol() == 1){
+                    intent = new Intent(Login.this, MainActivity.class);
+                } else if (user.getId_rol() == 2) {
+                    intent = new Intent(Login.this, MainActivity.class);
+                } else {
+                    Toast.makeText(Login.this, "Rol desconocido", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Ir a pantalla principal
-                Intent intent = new Intent(Login.this, MainActivity.class);
+
                 startActivity(intent);
                 finish();
             }
