@@ -10,6 +10,7 @@ import com.example.cineapp.models.RegistroResponse;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -22,6 +23,10 @@ public interface ApiService {
 
     @GET("precios")
     Call<List<Precio>> getPrecios();
+    @POST("precios/insertar")
+    Call<ResponseBody> insertarPrecio(@Body Precio precio);
+    @GET("precios")
+    Call<List<Precio>> getPrecios(@Query("id_cine") String idCine);
 
     @POST("auth")
     Call<LoginResponse> login(@Body LoginRequest request);

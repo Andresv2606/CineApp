@@ -14,7 +14,7 @@ import java.util.List;
 
 public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder> {
 
-    List<Precio> lista;
+    private List<Precio> lista;
 
     public PrecioAdapter(List<Precio> lista) {
         this.lista = lista;
@@ -30,11 +30,10 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Precio p = lista.get(position);
+        Precio precioActual = lista.get(position);
 
-        holder.descripcion.setText(p.getDescripcion());
-        holder.valor.setText("$ " + p.getValor());
-
+        holder.descripcion.setText(precioActual.getDescripcion());
+        holder.valor.setText("$ " + precioActual.getValor());
     }
 
     @Override
@@ -51,8 +50,6 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
 
             descripcion = itemView.findViewById(R.id.txtTipoBol);
             valor = itemView.findViewById(R.id.txtPrecioBol);
-            // ❗ ¡ELIMINAR! ya NO existe en el XML
-            // observacion = itemView.findViewById(R.id.txtObservacionBol);
         }
     }
 }

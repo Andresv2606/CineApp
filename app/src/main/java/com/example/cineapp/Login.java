@@ -85,6 +85,7 @@ public class Login extends AppCompatActivity {
                 editorPrefs.putInt("id_persona", user.getId_persona());
                 editorPrefs.putInt("id_rol", user.getId_rol());
                 Log.d("PREFS", "Guardando id_rol: " + user.getId_rol());
+                editorPrefs.putString("nombre_rol", user.getNombreRol());
 
                 editorPrefs.putString("nombre", user.getNombre());
                 editorPrefs.putString("apellido", user.getApellido());

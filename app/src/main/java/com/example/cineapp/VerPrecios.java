@@ -1,7 +1,11 @@
 package com.example.cineapp;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +25,8 @@ public class VerPrecios extends AppCompatActivity {
     PrecioAdapter adapter;
     List<Precio> listaPrecios;
 
+    Button btnAgregarPrecio;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,21 @@ public class VerPrecios extends AppCompatActivity {
 
         rvPrecios = findViewById(R.id.rvPrecios);
         rvPrecios.setLayoutManager(new LinearLayoutManager(this));
+
+        btnAgregarPrecio = findViewById(R.id.btnAgregarPrecio);
+        SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
+        int rolUsuario = prefs.getInt("id_rol", 2); // 2 = usuario normal
+
+        if (rolUsuario == 1) {
+            btnAgregarPrecio.setVisibility(View.VISIBLE);
+
+            btnAgregarPrecio.setOnClickListener(v -> {
+                Intent intent = new Intent(VerPrecios.this, RegistrarPrecio.class);
+                startActivity(intent);
+            });
+        } else {
+            btnAgregarPrecio.setVisibility(View.GONE);
+        }
 
         cargarPrecios();
 
