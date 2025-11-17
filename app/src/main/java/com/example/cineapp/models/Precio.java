@@ -11,6 +11,7 @@ public class Precio {
     public Precio(String descripcion, String valor) {
         this.descripcion = descripcion;
         this.valor = valor;
+        this.id_cine = "1"; // 👈 siempre cine 1
     }
 
     public String getId_precio() {
@@ -28,4 +29,8 @@ public class Precio {
     public String getValor() {
         return valor;
     }
+    public void setId_cine(String id_cine) {
+        this.id_cine = id_cine;
+    }
+
 }
