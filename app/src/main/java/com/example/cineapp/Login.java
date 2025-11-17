@@ -31,7 +31,6 @@ public class Login extends AppCompatActivity {
         btnRegistrate = findViewById(R.id.btnRegistrate);
         btncontraseña = findViewById(R.id.btncontraseña);
 
-
         btnIniciarSesion.setOnClickListener(v -> iniciarSesion());
 
         btnRegistrate.setOnClickListener(v -> {
