@@ -1,5 +1,7 @@
 package com.example.cineapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +17,24 @@ import com.example.cineapp.models.Pelicula;
 import java.util.List;
 
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> {
-
+    private Context context;
     private List<Pelicula> lista;
 
-    public PeliculaAdapter(List<Pelicula> lista) {
+    private OnEliminarClickListener onEliminarClickListener;
+    public PeliculaAdapter(Context context, List<Pelicula> lista) {
+        this.context = context;
         this.lista = lista;
+    }
+
+    // ---------------------------------------------------------
+    //  INTERFAZ PARA EL BOTÓN ELIMINAR
+    // ---------------------------------------------------------
+    public interface OnEliminarClickListener {
+        void onEliminarClick(int idPelicula);
+    }
+
+    public void setOnEliminarClickListener(OnEliminarClickListener listener) {
+        this.onEliminarClickListener = listener;
     }
 
     @NonNull
@@ -47,7 +62,34 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         holder.lugar.setText("No disponible");
         holder.horario.setText("No disponible");
 
+        int idPelicula = p.getId_pelicula();
 
+        // ----------------------------
+        // BOTÓN DETALLE
+        // ----------------------------
+        /*holder.btnDetalle.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), DetallePeliculaActivity.class);
+            intent.putExtra("id_pelicula", idPelicula);
+            v.getContext().startActivity(intent);
+        });*/
+
+        // ----------------------------
+        // BOTÓN EDITAR
+        // ----------------------------
+        /*holder.btnEditar.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), EditarPeliculaActivity.class);
+            intent.putExtra("id_pelicula", idPelicula);
+            v.getContext().startActivity(intent);
+        });*/
+
+        // ----------------------------
+        // BOTÓN ELIMINAR
+        // ----------------------------
+        holder.btnEliminar.setOnClickListener(v -> {
+            if (onEliminarClickListener != null) {
+                onEliminarClickListener.onEliminarClick(idPelicula);
+            }
+        });
     }
 
     @Override
@@ -56,10 +98,9 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView titulo, genero, clasificacion, lugar, horario;
         ImageView imagen;
-        Button btnDetalle;
+        Button btnDetalle, btnEditar, btnEliminar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +112,8 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             horario = itemView.findViewById(R.id.txtHorario);
             imagen = itemView.findViewById(R.id.imgPelicula);
             btnDetalle = itemView.findViewById(R.id.btnDetalle);
+            btnEditar = itemView.findViewById(R.id.btnEditar);
+            btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }
 }

@@ -15,8 +15,10 @@ import java.util.List;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -25,6 +27,9 @@ public interface ApiService {
 
     @POST("peliculas")
     Call<PeliculaResponse> registrarPelicula(@Body Pelicula pelicula);
+
+    @DELETE("peliculas/{id}")
+    Call<PeliculaResponse> eliminarPelicula(@Path("id") int idPelicula);
 
     @GET("precios")
     Call<List<Precio>> getPrecios();

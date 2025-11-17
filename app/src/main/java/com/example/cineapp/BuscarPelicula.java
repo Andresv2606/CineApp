@@ -7,12 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cineapp.models.Pelicula;
+import com.example.cineapp.models.PeliculaResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +86,11 @@ public class BuscarPelicula extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Pelicula>> call, Response<List<Pelicula>> response) {
                 listaOriginal = response.body();
-                adapter = new PeliculaAdapter(listaOriginal);
+                adapter = new PeliculaAdapter(BuscarPelicula.this, listaOriginal);
+
+                adapter.setOnEliminarClickListener(idPelicula -> {
+                    eliminarPelicula(idPelicula);
+                });
                 rvPeliculas.setAdapter(adapter);
             }
 
@@ -94,4 +100,30 @@ public class BuscarPelicula extends AppCompatActivity {
             }
         });
     }
+
+    private void eliminarPelicula(int id) {
+        Call<PeliculaResponse> call = RetrofitClient.getApiService().eliminarPelicula(id);
+
+        call.enqueue(new Callback<PeliculaResponse>() {
+            @Override
+            public void onResponse(Call<PeliculaResponse> call, Response<PeliculaResponse> response) {
+
+                if (!response.isSuccessful()) {
+                    Toast.makeText(BuscarPelicula.this, "Error al eliminar ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Toast.makeText(BuscarPelicula.this, "Película eliminada correctamente", Toast.LENGTH_SHORT).show();
+
+                cargarPeliculas();
+            }
+
+            @Override
+            public void onFailure(Call<PeliculaResponse> call, Throwable t) {
+                Toast.makeText(BuscarPelicula.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        Toast.makeText(this, "Eliminando película ID: " + id, Toast.LENGTH_SHORT).show();
+    }
+
 }
