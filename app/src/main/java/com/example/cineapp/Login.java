@@ -25,7 +25,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         txt_persona = findViewById(R.id.txt_persona);
         txt_contrasena = findViewById(R.id.txt_contrasena);
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
@@ -39,8 +38,7 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this, RegistroUs.class);
             startActivity(intent);
         });
-
-
+        
         btncontraseña.setOnClickListener(v -> {
             Intent intent = new Intent(Login.this, contrasena.class);
             startActivity(intent);
@@ -80,11 +78,13 @@ public class Login extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
 
                 SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
+                SharedPreferences.Editor editorPrefs = prefs.edit();
 
-                editor.putInt("id_persona", user.getId_persona());
-                editor.putString("nombre", user.getNombre());
-                editor.putString("apellido", user.getApellido());
+                editorPrefs.putInt("id_persona", user.getId_persona());
+                editorPrefs.putString("nombre", user.getNombre());
+                editorPrefs.putString("apellido", user.getApellido());
+                editorPrefs.putString("email", user.getEmail());
+                editorPrefs.putString("telefono", user.getTelefono());
 
                 // Ir a pantalla principal
                 Intent intent = new Intent(Login.this, MainActivity.class);
