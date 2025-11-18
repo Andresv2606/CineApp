@@ -28,6 +28,9 @@ public class RegistrarPrecio extends AppCompatActivity {
         txtValor = findViewById(R.id.edtValorPrecio);
         btnGuardar = findViewById(R.id.btnRegistrarPrecio);
 
+
+        findViewById(R.id.btnVolverPrecio).setOnClickListener(v -> finish());
+
         btnGuardar.setOnClickListener(v -> guardarPrecio());
     }
 
@@ -42,7 +45,7 @@ public class RegistrarPrecio extends AppCompatActivity {
 
         double valor = Double.parseDouble(valorTexto);
 
-        Precio precio = new Precio(descripcion, valor, 1); // id_cine fijo por ahora
+        Precio precio = new Precio(descripcion, valor, 1);
 
         RetrofitClient.getApiService().registrarPrecio(precio)
                 .enqueue(new Callback<PrecioResponse>() {

@@ -24,4 +24,32 @@
         android:gravity="center"/>
 
 
+    <ImageButton
+        android:id="@+id/btnEditar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:padding="2dp"
+        android:src="@drawable/editar"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:contentDescription="Editar" />
+
+
+    <ImageButton
+        android:id="@+id/btnEliminar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:padding="2dp"
+        android:src="@drawable/eliminar"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:contentDescription="Eliminar" />
+
+
+
+
 </LinearLayout>

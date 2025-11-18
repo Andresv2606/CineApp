@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".RegistrarPrecio">
-
-    <!-- BOTÓN VOLVER -->
+    >
     <ImageButton
         android:id="@+id/btnVolverPrecio"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="48dp"
+        android:adjustViewBounds="true"
         android:background="@android:color/transparent"
-        android:src="@drawable/flecha"
         android:contentDescription="Volver"
+        android:scaleType="fitCenter"
+        android:src="@drawable/flecha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- TÍTULO -->
     <TextView
         android:id="@+id/txtTituloPrecio"
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- LOGO -->
+
     <ImageView
         android:id="@+id/imgLogoPrecio"
         android:layout_width="200dp"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- CAMPO DESCRIPCIÓN -->
+
     <EditText
         android:id="@+id/edtDescripcionPrecio"
         android:layout_width="300dp"
@@ -57,7 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- CAMPO VALOR -->
     <EditText
         android:id="@+id/edtValorPrecio"
         android:layout_width="300dp"
@@ -70,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- BOTÓN REGISTRAR -->
+
     <Button
         android:id="@+id/btnRegistrarPrecio"
         android:layout_width="200dp"

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,11 +22,12 @@ import retrofit2.Response;
 
 public class VerPrecios extends AppCompatActivity {
 
-    RecyclerView rvPrecios;
-    PrecioAdapter adapter;
-    List<Precio> listaPrecios;
+    private RecyclerView rvPrecios;
+    private PrecioAdapter adapter;
+    private Button btnAgregarPrecio;
 
-    Button btnAgregarPrecio;
+    private int rolUsuario;
+    private List<Precio> listaPrecios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,12 @@ public class VerPrecios extends AppCompatActivity {
         rvPrecios.setLayoutManager(new LinearLayoutManager(this));
 
         btnAgregarPrecio = findViewById(R.id.btnAgregarPrecio);
-        SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
-        int rolUsuario = prefs.getInt("id_rol", 2); // 2 = usuario normal
 
+        // Leer rol del usuario
+        SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
+        rolUsuario = prefs.getInt("id_rol", 2); // 1 = admin
+
+        // Mostrar u ocultar botón agregar
         if (rolUsuario == 1) {
             btnAgregarPrecio.setVisibility(View.VISIBLE);
 
@@ -46,6 +51,7 @@ public class VerPrecios extends AppCompatActivity {
                 Intent intent = new Intent(VerPrecios.this, RegistrarPrecio.class);
                 startActivity(intent);
             });
+
         } else {
             btnAgregarPrecio.setVisibility(View.GONE);
         }
@@ -55,18 +61,25 @@ public class VerPrecios extends AppCompatActivity {
         findViewById(R.id.btnVolver).setOnClickListener(v -> finish());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cargarPrecios();
+    }
+
     private void cargarPrecios() {
+
         RetrofitClient.getApiService().getPrecios().enqueue(new Callback<List<Precio>>() {
             @Override
             public void onResponse(Call<List<Precio>> call, Response<List<Precio>> response) {
-
-                if (response.body() == null) {
-                    Log.e("API", "Respuesta vacía");
+                if (!response.isSuccessful() || response.body() == null) {
+                    Log.e("API", "Error al obtener precios");
                     return;
                 }
 
                 listaPrecios = response.body();
-                adapter = new PrecioAdapter(listaPrecios);
+
+                adapter = new PrecioAdapter(listaPrecios, rolUsuario);
                 rvPrecios.setAdapter(adapter);
             }
 

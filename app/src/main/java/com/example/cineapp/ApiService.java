@@ -16,8 +16,11 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -37,8 +40,15 @@ public interface ApiService {
     @POST("precios")
     Call<PrecioResponse> registrarPrecio(@Body Precio precio);
 
+    // Actualizar (usar PUT según tu routing)
+    @PUT("precios/{id}")
+    Call<PrecioResponse> actualizarPrecio(@Path("id") String id, @Body Precio precio);
+
     @GET("precios")
     Call<List<Precio>> getPrecios(@Query("id_cine") String idCine);
+    @DELETE("precios/{id}")
+    Call<PrecioResponse> eliminarPrecio(@Path("id") String id);
+
 
     @POST("auth")
     Call<LoginResponse> login(@Body LoginRequest request);

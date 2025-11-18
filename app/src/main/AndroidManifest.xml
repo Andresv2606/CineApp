@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CineApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditarPrecio"
+            android:exported="false" />
+        <activity
             android:name=".RegistrarPrecio"
             android:exported="false" />
         <activity
