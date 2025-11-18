@@ -31,6 +31,9 @@ public interface ApiService {
     @POST("peliculas")
     Call<PeliculaResponse> registrarPelicula(@Body Pelicula pelicula);
 
+    @PUT("peliculas")
+    Call<PeliculaResponse> actualizarPelicula(@Body Pelicula pelicula);
+
     @DELETE("peliculas/{id}")
     Call<PeliculaResponse> eliminarPelicula(@Path("id") int idPelicula);
 
