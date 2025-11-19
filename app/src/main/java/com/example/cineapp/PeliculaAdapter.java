@@ -25,10 +25,6 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         this.context = context;
         this.lista = lista;
     }
-
-    // ---------------------------------------------------------
-    //  INTERFAZ PARA EL BOTÓN ELIMINAR
-    // ---------------------------------------------------------
     public interface OnEliminarClickListener {
         void onEliminarClick(int idPelicula);
     }

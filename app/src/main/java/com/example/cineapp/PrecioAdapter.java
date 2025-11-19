@@ -60,7 +60,6 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
             holder.btnEliminar.setVisibility(View.GONE);
         }
 
-        // EDITAR
         holder.btnEditar.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), EditarPrecio.class);
             intent.putExtra("volver_a", "verprecios");
@@ -71,11 +70,11 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
             v.getContext().startActivity(intent);
         });
 
-        // ELIMINAR
         holder.btnEliminar.setOnClickListener(v -> {
             new AlertDialog.Builder(v.getContext())
                     .setTitle("Confirmar eliminación")
                     .setMessage("¿Seguro quieres eliminar este precio?")
+                    .setIcon(R.drawable.warning)
                     .setPositiveButton("Sí", (dialog, which) ->
                             eliminarPrecio(v, precioActual.getId_precio(), position)
                     )

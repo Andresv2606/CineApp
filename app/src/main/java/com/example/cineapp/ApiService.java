@@ -43,7 +43,6 @@ public interface ApiService {
     @POST("precios")
     Call<PrecioResponse> registrarPrecio(@Body Precio precio);
 
-    // Actualizar (usar PUT según tu routing)
     @PUT("precios/{id}")
     Call<PrecioResponse> actualizarPrecio(@Path("id") String id, @Body Precio precio);
 

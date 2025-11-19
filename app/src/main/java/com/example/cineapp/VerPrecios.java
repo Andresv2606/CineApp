@@ -38,12 +38,8 @@ public class VerPrecios extends AppCompatActivity {
         rvPrecios.setLayoutManager(new LinearLayoutManager(this));
 
         btnAgregarPrecio = findViewById(R.id.btnAgregarPrecio);
-
-        // Leer rol del usuario
         SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
-        rolUsuario = prefs.getInt("id_rol", 2); // 1 = admin
-
-        // Mostrar u ocultar botón agregar
+        rolUsuario = prefs.getInt("id_rol", 2);
         if (rolUsuario == 1) {
             btnAgregarPrecio.setVisibility(View.VISIBLE);
 
