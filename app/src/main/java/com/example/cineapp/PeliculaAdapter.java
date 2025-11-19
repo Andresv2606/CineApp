@@ -74,17 +74,11 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         });*/
 
         // ----------------------------
-        // BOTÓN EDITAR
-        // ----------------------------
-        holder.btnEditar.setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), EditarPeliculaActivity.class);
-            intent.putExtra("id_pelicula", idPelicula);
-            v.getContext().startActivity(intent);
-        });
-
-        // ----------------------------
         // BOTÓN ELIMINAR
         // ----------------------------
+
+
+
         holder.btnEliminar.setOnClickListener(v -> {
             if (onEliminarClickListener != null) {
                 onEliminarClickListener.onEliminarClick(idPelicula);
