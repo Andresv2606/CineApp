@@ -53,8 +53,6 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         holder.titulo.setText(p.getTitulo());
         holder.genero.setText(p.getGenero());
         holder.clasificacion.setText(p.getClasificacion());
-
-        // Tu API NO trae lugar ni horario
         holder.lugar.setText("No disponible");
         holder.horario.setText("No disponible");
 
@@ -63,18 +61,15 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         // ----------------------------
         // BOTÓN DETALLE
         // ----------------------------
-        /*holder.btnDetalle.setOnClickListener(v -> {
+        holder.btnDetalle.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), DetallePeliculaActivity.class);
             intent.putExtra("id_pelicula", idPelicula);
             v.getContext().startActivity(intent);
-        });*/
+        });
 
         // ----------------------------
         // BOTÓN ELIMINAR
         // ----------------------------
-
-
-
         holder.btnEliminar.setOnClickListener(v -> {
             if (onEliminarClickListener != null) {
                 onEliminarClickListener.onEliminarClick(idPelicula);
@@ -102,7 +97,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             horario = itemView.findViewById(R.id.txtHorario);
             imagen = itemView.findViewById(R.id.imgPelicula);
             btnDetalle = itemView.findViewById(R.id.btnDetalle);
-            btnEditar = itemView.findViewById(R.id.btnEditar);
+            //btnEditar = itemView.findViewById(R.id.btnEditar);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }

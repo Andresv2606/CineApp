@@ -7,13 +7,15 @@ public class Pelicula {
     private String genero;
     private String clasificacion;
     private int id_director;
+    private String director;
 
+    public String getDirector() { return director; }
+    public void setDirector(String director) { this.director = director; }
 
     public int getId_pelicula() { return id_pelicula; }
     public String getTitulo() { return titulo; }
     public String getGenero() { return genero; }
     public String getClasificacion() { return clasificacion; }
-    public int getId_director() { return id_director; }
 
     public Pelicula(String nombre, String genero, String clasificacion, Integer director) {
         this.titulo = nombre;

@@ -16,6 +16,16 @@
         android:theme="@style/Theme.CineApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Reservar"
+            android:exported="false" />
+        <activity
+            android:name=".PuestosActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".DetallePeliculaActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditarPrecio"
             android:exported="false" />
         <activity

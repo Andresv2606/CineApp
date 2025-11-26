@@ -9,10 +9,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.cineapp.adapters.CineAdapter;
+
 import com.example.cineapp.models.Cine;
-import com.example.cineapp.models.Precio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +27,6 @@ public class BuscarCine extends AppCompatActivity {
     RecyclerView rvCines;
 
     List<Cine> listaCines = new ArrayList<>();
-    List<Precio> preciosGlobales = new ArrayList<>();
-
     CineAdapter adapter;
 
     @Override
@@ -43,10 +40,9 @@ public class BuscarCine extends AppCompatActivity {
         rvCines = findViewById(R.id.rvCines);
 
         rvCines.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CineAdapter(listaCines);
+        adapter = new CineAdapter(listaCines, 0); // 0 = sin película, solo mostrar cines
         rvCines.setAdapter(adapter);
 
-        cargarPreciosGlobales();
         cargarTodosLosCines();
 
         btnBuscarCine.setOnClickListener(v -> {
@@ -60,31 +56,13 @@ public class BuscarCine extends AppCompatActivity {
 
         btnVolver.setOnClickListener(v -> finish());
     }
-
-    private void cargarPreciosGlobales() {
-        RetrofitClient.getApiService().getPrecios().enqueue(new Callback<List<Precio>>() {
-            @Override
-            public void onResponse(Call<List<Precio>> call, Response<List<Precio>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    preciosGlobales = response.body();
-                    actualizarPreciosEnLista();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Precio>> call, Throwable t) {
-                Log.e("API", "Error precios globales", t);
-            }
-        });
-    }
-
     private void cargarTodosLosCines() {
         RetrofitClient.getApiService().getCines().enqueue(new Callback<List<Cine>>() {
             @Override
             public void onResponse(Call<List<Cine>> call, Response<List<Cine>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     listaCines = response.body();
-                    actualizarPreciosEnLista();
+                    adapter.updateList(listaCines);
                 }
             }
 
@@ -101,23 +79,16 @@ public class BuscarCine extends AppCompatActivity {
             public void onResponse(Call<List<Cine>> call, Response<List<Cine>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     listaCines = response.body();
-                    actualizarPreciosEnLista();
+                    adapter.updateList(listaCines);
                 } else {
                     Toast.makeText(BuscarCine.this, "No se encontraron cines", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call<List<Cine>> call, Throwable t) {
                 Toast.makeText(BuscarCine.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    // Asigna los precios globales a todos los cines
-    private void actualizarPreciosEnLista() {
-        for (Cine c : listaCines) {
-            c.setPrecios(preciosGlobales);
-        }
-        adapter.updateList(listaCines);
     }
 }
