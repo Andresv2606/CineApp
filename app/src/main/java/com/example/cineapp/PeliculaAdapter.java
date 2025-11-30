@@ -53,8 +53,8 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         holder.titulo.setText(p.getTitulo());
         holder.genero.setText(p.getGenero());
         holder.clasificacion.setText(p.getClasificacion());
-        holder.lugar.setText("No disponible");
-        holder.horario.setText("No disponible");
+        holder.lugar.setText("Ingresar para ver lugares");
+        holder.horario.setText("Ingresar para ver horarios");
 
         int idPelicula = p.getId_pelicula();
 

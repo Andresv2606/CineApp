@@ -1,6 +1,7 @@
 package com.example.cineapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -60,6 +61,7 @@ public class RegistrarPrecio extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<PrecioResponse> call, Throwable t) {
                         Toast.makeText(RegistrarPrecio.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        Log.d("API", "Error: " + t.getMessage());
                     }
                 });
     }
