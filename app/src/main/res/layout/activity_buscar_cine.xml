@@ -57,9 +57,10 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:hint="Nombre del cine"
             android:background="@drawable/edittext_oval"
-            android:paddingStart="12dp"/>
+            android:hint="Nombre del cine"
+            android:paddingStart="12dp"
+            android:textColor="@color/text_primary"/>
 
         <Button
             android:id="@+id/btnCine"

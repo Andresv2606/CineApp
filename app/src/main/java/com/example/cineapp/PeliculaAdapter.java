@@ -2,6 +2,7 @@ package com.example.cineapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +18,23 @@ import com.example.cineapp.models.Pelicula;
 import java.util.List;
 
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> {
+
     private Context context;
     private List<Pelicula> lista;
 
+    private int idRol; // ← Rol del usuario
+
     private OnEliminarClickListener onEliminarClickListener;
-    public PeliculaAdapter(Context context, List<Pelicula> lista) {
+
+    // -------------------------------
+    // CONSTRUCTOR MODIFICADO
+    // -------------------------------
+    public PeliculaAdapter(Context context, List<Pelicula> lista, int idRol) {
         this.context = context;
         this.lista = lista;
+        this.idRol = idRol; // ← Recibe el rol
     }
+
     public interface OnEliminarClickListener {
         void onEliminarClick(int idPelicula);
     }
@@ -58,18 +68,23 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
 
         int idPelicula = p.getId_pelicula();
 
-        // ----------------------------
+        // -------------------------------------------
+        // MOSTRAR / OCULTAR BOTÓN ELIMINAR SEGÚN ROL
+        // -------------------------------------------
+        if (idRol == 1) { // administrador
+            holder.btnEliminar.setVisibility(View.VISIBLE);
+        } else { // usuario
+            holder.btnEliminar.setVisibility(View.GONE);
+        }
+
         // BOTÓN DETALLE
-        // ----------------------------
         holder.btnDetalle.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), DetallePeliculaActivity.class);
             intent.putExtra("id_pelicula", idPelicula);
             v.getContext().startActivity(intent);
         });
 
-        // ----------------------------
         // BOTÓN ELIMINAR
-        // ----------------------------
         holder.btnEliminar.setOnClickListener(v -> {
             if (onEliminarClickListener != null) {
                 onEliminarClickListener.onEliminarClick(idPelicula);
@@ -85,7 +100,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView titulo, genero, clasificacion, lugar, horario;
         ImageView imagen;
-        Button btnDetalle, btnEditar, btnEliminar;
+        Button btnDetalle, btnEliminar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,8 +111,8 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             lugar = itemView.findViewById(R.id.txtLugar);
             horario = itemView.findViewById(R.id.txtHorario);
             imagen = itemView.findViewById(R.id.imgPelicula);
+
             btnDetalle = itemView.findViewById(R.id.btnDetalle);
-            //btnEditar = itemView.findViewById(R.id.btnEditar);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }

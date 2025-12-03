@@ -2,6 +2,7 @@ package com.example.cineapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetallePeliculaActivity extends AppCompatActivity {
-
     TextView txtTitulo, txtGenero, txtClasificacion;
     RecyclerView rvCinesPelicula;
     int idPelicula;

@@ -29,6 +29,7 @@ public class BuscarPelicula extends AppCompatActivity {
     PeliculaAdapter adapter;
     List<Pelicula> listaOriginal;
     Button btnDetalle, btnBuscar, btnVolver, btnAgregarPelicula;
+    int id_rol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class BuscarPelicula extends AppCompatActivity {
         btnAgregarPelicula = findViewById(R.id.btnAddPelicula);
 
         SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
-        int id_rol = prefs.getInt("id_rol", 2);
+        id_rol = prefs.getInt("id_rol", 2);
         Log.d("PREFS", "Leyendo id_rol: " + id_rol);
 
 
@@ -86,7 +87,7 @@ public class BuscarPelicula extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Pelicula>> call, Response<List<Pelicula>> response) {
                 listaOriginal = response.body();
-                adapter = new PeliculaAdapter(BuscarPelicula.this, listaOriginal);
+                adapter = new PeliculaAdapter(BuscarPelicula.this, listaOriginal, id_rol);
 
                 adapter.setOnEliminarClickListener(idPelicula -> {
                     eliminarPelicula(idPelicula);
