@@ -28,57 +28,62 @@ public class BuscarPelicula extends AppCompatActivity {
     RecyclerView rvPeliculas;
     PeliculaAdapter adapter;
     List<Pelicula> listaOriginal;
-    Button btnDetalle, btnBuscar, btnVolver, btnAgregarPelicula;
-    int id_rol;
+
+    Button btnBuscar, btnVolver, btnAgregarPelicula;
+    int id_rol; // variable global bien usada
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_pelicula);
 
+        //Referencias UI
         rvPeliculas = findViewById(R.id.rvPeliculas);
+        btnBuscar = findViewById(R.id.btnBuscarPel);
+        btnVolver = findViewById(R.id.btnVolverBusPel);
+        btnAgregarPelicula = findViewById(R.id.btnAddPelicula);
 
+        //Configuración RecyclerView
         rvPeliculas.setLayoutManager(new LinearLayoutManager(this));
         rvPeliculas.setNestedScrollingEnabled(true);
         rvPeliculas.setHasFixedSize(false);
-        cargarPeliculas();
 
-        // --- BOTÓN BUSCAR ---
-        //btnDetalle = findViewById(R.id.btnDetalle);
-        btnBuscar = findViewById(R.id.btnBuscarPel);
-        btnVolver = findViewById(R.id.btnVolverBusPel);
-
-        btnAgregarPelicula = findViewById(R.id.btnAddPelicula);
-
+        //Obtener ROL guardado en preferencias
         SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
         id_rol = prefs.getInt("id_rol", 2);
         Log.d("PREFS", "Leyendo id_rol: " + id_rol);
 
-
-        // Ocultar Boton dependiendo el rol
-        if ( id_rol != 1 ){
+        //Si NO es admin ocultar botón agregar
+        if (id_rol != 1) {
             btnAgregarPelicula.setVisibility(View.GONE);
         }
 
+        //Cargar películas
+        cargarPeliculas();
+
         EditText txtBuscar = findViewById(R.id.txt_buscarPelicula);
 
+        //BOTÓN BUSCAR
         btnBuscar.setOnClickListener(v -> {
-            String texto = txtBuscar.getText().toString().toLowerCase();
+            String texto = txtBuscar.getText().toString().toLowerCase().trim();
             List<Pelicula> filtrada = new ArrayList<>();
+
             for (Pelicula p : listaOriginal) {
                 if (p.getTitulo().toLowerCase().contains(texto)) {
                     filtrada.add(p);
                 }
             }
+
             adapter.actualizarLista(filtrada);
         });
 
+        //BOTÓN AGREGAR
         btnAgregarPelicula.setOnClickListener(v -> {
-            Intent intent = new Intent(BuscarPelicula.this, RegistroPeliculas.class);
-            startActivity(intent);
+            startActivity(new Intent(BuscarPelicula.this, RegistroPeliculas.class));
             finish();
         });
 
+        //BOTÓN VOLVER
         btnVolver.setOnClickListener(v -> finish());
     }
 
@@ -86,12 +91,17 @@ public class BuscarPelicula extends AppCompatActivity {
         RetrofitClient.getApiService().getPeliculas().enqueue(new Callback<List<Pelicula>>() {
             @Override
             public void onResponse(Call<List<Pelicula>> call, Response<List<Pelicula>> response) {
+
+                if (!response.isSuccessful() || response.body() == null) {
+                    Toast.makeText(BuscarPelicula.this, "Error al obtener películas", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 listaOriginal = response.body();
                 adapter = new PeliculaAdapter(BuscarPelicula.this, listaOriginal, id_rol);
 
-                adapter.setOnEliminarClickListener(idPelicula -> {
-                    eliminarPelicula(idPelicula);
-                });
+                adapter.setOnEliminarClickListener(idPelicula -> eliminarPelicula(idPelicula));
+
                 rvPeliculas.setAdapter(adapter);
             }
 
@@ -103,20 +113,17 @@ public class BuscarPelicula extends AppCompatActivity {
     }
 
     private void eliminarPelicula(int id) {
-        Call<PeliculaResponse> call = RetrofitClient.getApiService().eliminarPelicula(id);
-
-        call.enqueue(new Callback<PeliculaResponse>() {
+        RetrofitClient.getApiService().eliminarPelicula(id).enqueue(new Callback<PeliculaResponse>() {
             @Override
             public void onResponse(Call<PeliculaResponse> call, Response<PeliculaResponse> response) {
 
                 if (!response.isSuccessful()) {
-                    Toast.makeText(BuscarPelicula.this, "Error al eliminar ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BuscarPelicula.this, "Error al eliminar", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 Toast.makeText(BuscarPelicula.this, "Película eliminada correctamente", Toast.LENGTH_SHORT).show();
-
-                cargarPeliculas();
+                cargarPeliculas(); //Recargar lista
             }
 
             @Override
@@ -124,7 +131,6 @@ public class BuscarPelicula extends AppCompatActivity {
                 Toast.makeText(BuscarPelicula.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-        Toast.makeText(this, "Eliminando película ID: " + id, Toast.LENGTH_SHORT).show();
     }
-
 }
+

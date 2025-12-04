@@ -22,17 +22,15 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     private Context context;
     private List<Pelicula> lista;
 
-    private int idRol; // ← Rol del usuario
+    private int idRol;
 
     private OnEliminarClickListener onEliminarClickListener;
 
-    // -------------------------------
-    // CONSTRUCTOR MODIFICADO
-    // -------------------------------
+
     public PeliculaAdapter(Context context, List<Pelicula> lista, int idRol) {
         this.context = context;
         this.lista = lista;
-        this.idRol = idRol; // ← Recibe el rol
+        this.idRol = idRol;
     }
 
     public interface OnEliminarClickListener {

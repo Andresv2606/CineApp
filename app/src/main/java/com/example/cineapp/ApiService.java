@@ -10,8 +10,8 @@ import com.example.cineapp.models.PeliculaDetalleResponse;
 import com.example.cineapp.models.PeliculaResponse;
 import com.example.cineapp.models.Persona;
 import com.example.cineapp.models.Precio;
-import com.example.cineapp.models.RegistroResponse;
 import com.example.cineapp.models.PrecioResponse;
+import com.example.cineapp.models.RegistroResponse;
 import com.example.cineapp.models.ReservaRequest;
 import com.example.cineapp.models.ReservaResponse;
 
@@ -27,39 +27,59 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
+
     @GET("peliculas")
     Call<List<Pelicula>> getPeliculas();
+
+    @GET("peliculas/{id}")
+    Call<PeliculaDetalleResponse> getPeliculaDetalle(@Path("id") int id);
 
     @GET("peliculas/{id}/cines")
     Call<PeliculaCinesResponse> getCinesPelicula(@Path("id") int id);
 
+    @POST("peliculas")
+    Call<PeliculaResponse> registrarPelicula(@Body Pelicula pelicula);
+
+    @PUT("peliculas")
+    Call<PeliculaResponse> actualizarPelicula(@Body Pelicula pelicula);
+
+    @DELETE("peliculas/{id}")
+    Call<PeliculaResponse> eliminarPelicula(@Path("id") int idPelicula);
+
+    // === HORARIOS ===
     @GET("horarios")
     Call<HorarioResponse> getHorarios(
             @Query("pelicula") int idPelicula,
             @Query("cine") int idCine
     );
+
+    // === RESERVAS ===
     @POST("reservas")
     Call<ReservaResponse> crearReserva(@Body ReservaRequest request);
-    @POST("peliculas")
-    Call<PeliculaResponse> registrarPelicula(@Body Pelicula pelicula);
-    @PUT("peliculas")
-    Call<PeliculaResponse> actualizarPelicula(@Body Pelicula pelicula);
-    @GET("peliculas/{id}")
-    Call<PeliculaDetalleResponse> getPeliculaDetalle(@Path("id") int id);
-    @DELETE("peliculas/{id}")
-    Call<PeliculaResponse> eliminarPelicula(@Path("id") int idPelicula);
+
+    @GET("reservas/precio")
+    Call<PrecioResponse> getPrecioHorario(@Query("id_horario") int idHorario);
+
+    // === PRECIOS ===
     @GET("precios")
     Call<List<Precio>> getPrecios();
+
     @POST("precios")
     Call<PrecioResponse> registrarPrecio(@Body Precio precio);
+
     @PUT("precios/{id}")
     Call<PrecioResponse> actualizarPrecio(@Path("id") String id, @Body Precio precio);
+
     @DELETE("precios/{id}")
     Call<PrecioResponse> eliminarPrecio(@Path("id") String id);
+
+    // === AUTENTICACIÓN ===
     @POST("auth")
     Call<LoginResponse> login(@Body LoginRequest request);
+
     @POST("personas")
     Call<RegistroResponse> registrarPersona(@Body Persona persona);
+
 
     @GET("cines")
     Call<List<Cine>> getCines();

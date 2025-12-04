@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this, RegistroUs.class);
             startActivity(intent);
         });
-        
+
         btncontraseña.setOnClickListener(v -> {
             Intent intent = new Intent(Login.this, contrasena.class);
             startActivity(intent);
