@@ -92,9 +92,16 @@ public class Login extends AppCompatActivity {
                 editorPrefs.putString("telefono", user.getTelefono());
                 editorPrefs.apply(); // Guardar
 
-                Intent intent = new Intent(Login.this, MainActivity.class);
-                startActivity(intent);
+                if (user.getId_rol() == 1) {
+                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(Login.this, BuscarPelicula.class);
+                    startActivity(intent);
+                }
+
                 finish();
+
             }
 
             @Override
