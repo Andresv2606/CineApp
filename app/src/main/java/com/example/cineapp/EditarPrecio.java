@@ -16,7 +16,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditarPrecio extends AppCompatActivity {
-
     private EditText edtDescripcionPrecio, edtValorPrecio;
     private Button btnActualizarPrecio, btnCancelar;
     private String idPrecio;
@@ -29,6 +28,7 @@ public class EditarPrecio extends AppCompatActivity {
 
         edtDescripcionPrecio = findViewById(R.id.edtDescripcionPrecio);
         edtValorPrecio = findViewById(R.id.edtValorPrecio);
+
         btnActualizarPrecio = findViewById(R.id.btnActualizarPrecio);
         btnCancelar = findViewById(R.id.btnCancelarEditar);
 

@@ -2,6 +2,7 @@ package com.example.cineapp;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +26,6 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
 
     private List<Precio> lista;
     private int rolUsuario;
-
-
-
     public PrecioAdapter(List<Precio> lista) {
         this.lista = lista;
         this.rolUsuario = rolUsuario;
@@ -36,8 +34,6 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
         this.lista = lista;
         this.rolUsuario = rolUsuario;
     }
-
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,8 +46,9 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Precio precioActual = lista.get(position);
-
+        Log.d("ADAPTER", "pos " + position + " nombreCine='" + precioActual.getNombreCine() + "'");
         holder.descripcion.setText(precioActual.getDescripcion());
+        holder.nomCine.setText(precioActual.getNombreCine());
         holder.valor.setText("$ " + precioActual.getValor());
 
 
@@ -64,6 +61,7 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
             Intent intent = new Intent(v.getContext(), EditarPrecio.class);
             intent.putExtra("volver_a", "verprecios");
             intent.putExtra("id_precio", precioActual.getId_precio());
+            intent.putExtra("nombreCine", precioActual.getNombreCine());
             intent.putExtra("descripcion", precioActual.getDescripcion());
             intent.putExtra("valor", precioActual.getValor());
             intent.putExtra("id_cine", precioActual.getId_cine());
@@ -113,13 +111,11 @@ public class PrecioAdapter extends RecyclerView.Adapter<PrecioAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView descripcion, valor;
+        TextView descripcion, valor, nomCine;
         ImageButton btnEditar, btnEliminar;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            nomCine = itemView.findViewById(R.id.txtCineBol);
             descripcion = itemView.findViewById(R.id.txtTipoBol);
             valor = itemView.findViewById(R.id.txtPrecioBol);
             btnEditar = itemView.findViewById(R.id.btnEditar);

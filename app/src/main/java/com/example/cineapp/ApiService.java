@@ -63,10 +63,8 @@ public interface ApiService {
     // === PRECIOS ===
     @GET("precios")
     Call<List<Precio>> getPrecios();
-
     @POST("precios")
     Call<PrecioResponse> registrarPrecio(@Body Precio precio);
-
     @PUT("precios/{id}")
     Call<PrecioResponse> actualizarPrecio(@Path("id") String id, @Body Precio precio);
 
@@ -79,11 +77,8 @@ public interface ApiService {
 
     @POST("personas")
     Call<RegistroResponse> registrarPersona(@Body Persona persona);
-
-
     @GET("cines")
     Call<List<Cine>> getCines();
-
     @GET("cines/buscar")
     Call<List<Cine>> buscarCine(@Query("nombre") String nombre);
 }

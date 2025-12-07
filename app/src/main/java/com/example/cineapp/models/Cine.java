@@ -1,8 +1,11 @@
 package com.example.cineapp.models;
 
-public class Cine {
+import com.google.gson.annotations.SerializedName;
 
+public class Cine {
+    @SerializedName("id_cine")
     private int id_cine;
+    @SerializedName("nombre")
     private String nombre;
     private String direccion;
     private String telefono;
