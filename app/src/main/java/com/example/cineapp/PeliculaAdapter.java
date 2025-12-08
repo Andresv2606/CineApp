@@ -34,7 +34,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     }
 
     public interface OnEliminarClickListener {
-        void onEliminarClick(int idPelicula);
+        void onEliminarClick(int idPelicula, int estadoActual);
     }
 
     public void setOnEliminarClickListener(OnEliminarClickListener listener) {
@@ -61,7 +61,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         holder.titulo.setText(p.getTitulo());
         holder.genero.setText(p.getGenero());
         holder.clasificacion.setText(p.getClasificacion());
-        holder.lugar.setText("Ingresar para ver lugares");
+        holder.lugar.setText("Ingresar para ver lugares"+p.getEstado());
         holder.horario.setText("Ingresar para ver horarios");
 
         int idPelicula = p.getId_pelicula();
@@ -75,6 +75,12 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             holder.btnEliminar.setVisibility(View.GONE);
         }
 
+        if( p.getEstado() == 1 ){
+            holder.btnEliminar.setText("Deshabilitar ❌");
+        }else{
+            holder.btnEliminar.setText("Habilitar ✅");
+        }
+
         // BOTÓN DETALLE
         holder.btnDetalle.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), DetallePeliculaActivity.class);
@@ -85,7 +91,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         // BOTÓN ELIMINAR
         holder.btnEliminar.setOnClickListener(v -> {
             if (onEliminarClickListener != null) {
-                onEliminarClickListener.onEliminarClick(idPelicula);
+                onEliminarClickListener.onEliminarClick(idPelicula, p.getEstado());
             }
         });
     }

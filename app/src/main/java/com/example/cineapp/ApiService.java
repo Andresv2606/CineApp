@@ -3,6 +3,7 @@ package com.example.cineapp;
 import com.example.cineapp.models.CambiarPassRequest;
 import com.example.cineapp.models.CambiarPassResponse;
 import com.example.cineapp.models.Cine;
+import com.example.cineapp.models.EstadoRequest;
 import com.example.cineapp.models.HorarioResponse;
 import com.example.cineapp.models.LoginRequest;
 import com.example.cineapp.models.LoginResponse;
@@ -19,6 +20,7 @@ import com.example.cineapp.models.ReservaResponse;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -38,6 +40,13 @@ public interface ApiService {
 
     @GET("peliculas/{id}/cines")
     Call<PeliculaCinesResponse> getCinesPelicula(@Path("id") int id);
+
+
+    @POST("peliculas/{id}/estado")
+    Call<ResponseBody> cambiarEstadoPelicula(
+            @Path("id") int id,
+            @Body EstadoRequest estadoRequest
+    );
 
     @POST("peliculas")
     Call<PeliculaResponse> registrarPelicula(@Body Pelicula pelicula);

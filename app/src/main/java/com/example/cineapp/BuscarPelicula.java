@@ -13,12 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cineapp.models.EstadoRequest;
 import com.example.cineapp.models.Pelicula;
 import com.example.cineapp.models.PeliculaResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -98,9 +100,29 @@ public class BuscarPelicula extends AppCompatActivity {
                 }
 
                 listaOriginal = response.body();
+                SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
+                id_rol = prefs.getInt("id_rol", 2);
+                // --- FILTRAR SOLO ACTIVAS ---
+                List<Pelicula> soloActivas = new ArrayList<>();
+                for (Pelicula p : listaOriginal) {
+                    //Si NO es admin ocultar botón agregar
+                    if (id_rol != 1) {
+                        if (p.getEstado() == 1) {
+                            soloActivas.add(p);
+                        }
+                    }else{
+                        soloActivas.add(p);
+                    }
+
+                }
+                listaOriginal = soloActivas;
+                // ----------------------------
+
                 adapter = new PeliculaAdapter(BuscarPelicula.this, listaOriginal, id_rol);
 
-                adapter.setOnEliminarClickListener(idPelicula -> eliminarPelicula(idPelicula));
+                adapter.setOnEliminarClickListener((idPelicula, estadoActual) -> {
+                    cambiarEstado(idPelicula, estadoActual);
+                });
 
                 rvPeliculas.setAdapter(adapter);
             }
@@ -110,6 +132,44 @@ public class BuscarPelicula extends AppCompatActivity {
                 Log.e("API", "Error: " + t.getMessage());
             }
         });
+    }
+
+    private void cambiarEstado(int id, int estadoActual) {
+        int estado = (estadoActual == 1) ? 0 : 1;
+        EstadoRequest request = new EstadoRequest(estado);
+
+        RetrofitClient.getApiService()
+                .cambiarEstadoPelicula(id, request)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (!response.isSuccessful()) {
+                            try {
+                                String errorBody = response.errorBody().string();
+                                Log.e("API_ERROR", errorBody);
+                                Toast.makeText(BuscarPelicula.this,
+                                        "Error al actualizar estado",
+                                        Toast.LENGTH_SHORT).show();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        // mensaje según estado
+                        String msg = (estadoActual == 1)
+                                ? "Película deshabilitada"
+                                : "Película habilitada";
+
+                        Toast.makeText(BuscarPelicula.this, msg, Toast.LENGTH_SHORT).show();
+
+                        cargarPeliculas(); // recargar lista
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(BuscarPelicula.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void eliminarPelicula(int id) {

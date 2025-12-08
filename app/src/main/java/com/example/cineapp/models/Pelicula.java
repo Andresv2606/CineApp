@@ -8,6 +8,7 @@ public class Pelicula {
     private String clasificacion;
     private int id_director;
     private String director;
+    private int estado;
 
     public String getDirector() { return director; }
     public void setDirector(String director) { this.director = director; }
@@ -16,6 +17,7 @@ public class Pelicula {
     public String getTitulo() { return titulo; }
     public String getGenero() { return genero; }
     public String getClasificacion() { return clasificacion; }
+    public int getEstado() { return estado; }
 
     public Pelicula(String nombre, String genero, String clasificacion, Integer director) {
         this.titulo = nombre;
@@ -29,4 +31,5 @@ public class Pelicula {
     public void setGenero(String genero) { this.genero = genero; }
     public void setClasificacion(String clasificacion) { this.clasificacion = clasificacion; }
     public void setId_director(int id_director) { this.id_director = id_director; }
+    public void setEstado(int estado) { this.estado = estado; }
 }
