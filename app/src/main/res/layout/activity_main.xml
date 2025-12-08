@@ -72,27 +72,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             android:padding="10dp">
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_margin="5dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/borde_sutil"
-                android:padding="10dp"
-                android:layout_margin="5dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/icono_fondo"
-                    android:gravity="center"
-                    android:layout_marginEnd="15dp">
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="50dp"
@@ -104,32 +104,32 @@
                     android:id="@+id/btnPelicula"
                     android:layout_width="270dp"
                     android:layout_height="65dp"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null"
                     android:text="Buscar película"
                     android:textAllCaps="false"
-                    android:textSize="20sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:background="@android:color/transparent"
-                    android:stateListAnimator="@null" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_margin="5dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/borde_sutil"
-                android:padding="10dp"
-                android:layout_margin="5dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/icono_fondo"
-                    android:gravity="center"
-                    android:layout_marginEnd="15dp">
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="50dp"
@@ -141,32 +141,32 @@
                     android:id="@+id/btnCine"
                     android:layout_width="270dp"
                     android:layout_height="65dp"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null"
                     android:text="Buscar cine"
                     android:textAllCaps="false"
-                    android:textSize="20sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:background="@android:color/transparent"
-                    android:stateListAnimator="@null" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_margin="5dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/borde_sutil"
-                android:padding="10dp"
-                android:layout_margin="5dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/icono_fondo"
-                    android:gravity="center"
-                    android:layout_marginEnd="15dp">
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="50dp"
@@ -178,31 +178,31 @@
                     android:id="@+id/btnPrecios"
                     android:layout_width="270dp"
                     android:layout_height="65dp"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null"
                     android:text="Ver precios"
                     android:textAllCaps="false"
-                    android:textSize="20sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:background="@android:color/transparent"
-                    android:stateListAnimator="@null" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_margin="5dp"
                 android:background="@drawable/borde_sutil"
-                android:padding="10dp"
-                android:layout_margin="5dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/icono_fondo"
-                    android:gravity="center"
-                    android:layout_marginEnd="15dp">
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="50dp"
@@ -214,14 +214,51 @@
                     android:id="@+id/btnHorarios"
                     android:layout_width="270dp"
                     android:layout_height="65dp"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null"
                     android:text="Horarios"
                     android:textAllCaps="false"
-                    android:textSize="20sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:background="@android:color/transparent"
-                    android:stateListAnimator="@null" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde_sutil"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/icono_fondo"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnTop"
+                    android:layout_width="270dp"
+                    android:layout_height="65dp"
+                    android:background="@android:color/transparent"
+                    android:stateListAnimator="@null"
+                    android:text="Películas TOP"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

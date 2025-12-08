@@ -50,5 +50,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+        Button btnTop = findViewById(R.id.btnTop);
+
+        btnTop.setOnClickListener(v -> {
+            Intent i = new Intent(this, TopPeliculas.class);
+            startActivity(i);
+        });
+
     }
 }
