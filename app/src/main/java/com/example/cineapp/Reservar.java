@@ -12,6 +12,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,6 +89,12 @@ public class Reservar extends AppCompatActivity {
 
         cargarPrecios();
         configurarListeners();
+        ImageView btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(v -> {
+            onBackPressed();
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        });
+
     }
 
     private void solicitarPermisos() {
@@ -124,7 +131,6 @@ public class Reservar extends AppCompatActivity {
         });
     }
 
-    // ===== INPUT DE CANTIDAD =====
     private void configurarListeners() {
         inputCantidad.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -185,7 +191,7 @@ public class Reservar extends AppCompatActivity {
 
                 generarPDF(
                         String.valueOf(resp.getIdReserva()),
-                        resp.getPersona(), // ← NOMBRE DE QUIEN RESERVÓ
+                        resp.getPersona(),
                         txtPelicula.getText().toString(),
                         txtHora.getText().toString(),
                         String.valueOf(cantidad),

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,28 +40,28 @@ public class BuscarPelicula extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_pelicula);
 
-        //Referencias UI
+
         rvPeliculas = findViewById(R.id.rvPeliculas);
         btnBuscar = findViewById(R.id.btnBuscarPel);
         btnVolver = findViewById(R.id.btnVolverBusPel);
         btnAgregarPelicula = findViewById(R.id.btnAddPelicula);
 
-        //Configuración RecyclerView
+
         rvPeliculas.setLayoutManager(new LinearLayoutManager(this));
         rvPeliculas.setNestedScrollingEnabled(true);
         rvPeliculas.setHasFixedSize(false);
 
-        //Obtener ROL guardado en preferencias
+
         SharedPreferences prefs = getSharedPreferences("USER_PREFS", MODE_PRIVATE);
         id_rol = prefs.getInt("id_rol", 2);
         Log.d("PREFS", "Leyendo id_rol: " + id_rol);
 
-        //Si NO es admin ocultar botón agregar
+
         if (id_rol != 1) {
             btnAgregarPelicula.setVisibility(View.GONE);
         }
 
-        //Cargar películas
+
         cargarPeliculas();
 
         EditText txtBuscar = findViewById(R.id.txt_buscarPelicula);
@@ -79,17 +80,42 @@ public class BuscarPelicula extends AppCompatActivity {
             adapter.actualizarLista(filtrada);
         });
 
-        //BOTÓN AGREGAR
+
         btnAgregarPelicula.setOnClickListener(v -> {
             startActivity(new Intent(BuscarPelicula.this, RegistroPeliculas.class));
             finish();
         });
 
-        //BOTÓN VOLVER
-        btnVolver.setOnClickListener(v -> finish());
+
+        if (id_rol != 1) {
+            btnAgregarPelicula.setVisibility(View.GONE);
+            btnVolver.setVisibility(View.GONE);
+        } else {
+            btnVolver.setOnClickListener(v -> finish());
+        }
+
+
+        ImageButton btnSalir = findViewById(R.id.btn_salir);
+
+        if (id_rol != 1) {
+            btnSalir.setVisibility(View.VISIBLE);
+            btnSalir.setOnClickListener(v -> {
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.apply();
+                Intent intent = new Intent(BuscarPelicula.this, Login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            });
+        } else {
+            btnSalir.setVisibility(View.GONE);
+        }
     }
 
-    private void cargarPeliculas() {
+
+        private void cargarPeliculas() {
         RetrofitClient.getApiService().getPeliculas().enqueue(new Callback<List<Pelicula>>() {
             @Override
             public void onResponse(Call<List<Pelicula>> call, Response<List<Pelicula>> response) {

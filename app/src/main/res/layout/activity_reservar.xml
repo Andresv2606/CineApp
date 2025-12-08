@@ -5,51 +5,47 @@
     android:orientation="vertical"
     android:background="#FFFFFF">
 
-    <!-- BARRA SUPERIOR ROJA -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="#D50000">
+        android:layout_height="100dp"
+    android:background="#D50000">
 
-        <!-- TÍTULO CENTRADO -->
-        <TextView
-            android:id="@+id/txtTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RESERVAR"
-            android:textColor="#FFFFFF"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"/>
-
-        <!-- FLECHA PEGADA AL TEXTO RESERVAR -->
-
-        <!-- LOGO AL LADO DERECHO -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESERVAR"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"/>
 
         <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="65dp"
-            android:layout_height="52dp"
-            android:layout_marginEnd="38dp"
+            android:id="@+id/btnVolver"
+            android:layout_width="83dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="28dp"
             android:layout_toStartOf="@id/txtTitulo"
             android:adjustViewBounds="true"
-            android:padding="8dp"
+            android:padding="12dp"
             android:src="@drawable/flecha" />
 
-        <ImageView
-            android:id="@+id/logoCine"
-            android:layout_width="120dp"
-            android:layout_height="65dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/logo_cinemax"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/logoCine"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/logo_cinemax"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
+</RelativeLayout>
 
-    <!-- CONTENIDO -->
-    <ScrollView
+
+
+<ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp">
@@ -59,7 +55,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- CARD PRINCIPAL -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +66,7 @@
                 android:layout_margin="12dp"
                 android:clipToPadding="false">
 
-                <!-- Película -->
+
                 <TextView
                     android:text="Película:"
                     android:textStyle="bold"
@@ -87,7 +83,7 @@
                     android:layout_marginBottom="12dp"
                     android:textColor="@color/text_primary"/>
 
-                <!-- Cine -->
+
                 <TextView
                     android:text="Cine:"
                     android:textStyle="bold"
@@ -121,7 +117,7 @@
                     android:layout_marginBottom="12dp"
                     android:textColor="@color/text_primary"/>
 
-                <!-- Hora -->
+
                 <TextView
                     android:text="Hora:"
                     android:textStyle="bold"
@@ -138,7 +134,6 @@
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/text_primary"/>
 
-                <!-- Precio -->
                 <TextView
                     android:text="Precio por boleto:"
                     android:textStyle="bold"
@@ -155,7 +150,7 @@
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/text_primary"/>
 
-                <!-- Cantidad -->
+
                 <TextView
                     android:text="Cantidad:"
                     android:textStyle="bold"
@@ -164,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary"/>
 
-                <!-- Total -->
+
                 <EditText
                     android:id="@+id/inputCantidad"
                     android:layout_width="match_parent"
@@ -194,7 +189,7 @@
                     android:layout_marginBottom="35dp"
                     android:textColor="@color/text_primary"/>
 
-                <!-- BOTÓN -->
+
                 <Button
                     android:id="@+id/btnConfirmarReserva"
                     android:layout_width="match_parent"

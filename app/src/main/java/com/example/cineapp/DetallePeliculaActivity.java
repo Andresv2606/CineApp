@@ -3,6 +3,7 @@ package com.example.cineapp;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +44,12 @@ public class DetallePeliculaActivity extends AppCompatActivity {
 
         cargarDetalles();
         cargarCines();
+        ImageView btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(v -> {
+            onBackPressed();
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        });
+
     }
 
     private void cargarDetalles() {

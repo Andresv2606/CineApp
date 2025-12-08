@@ -1,61 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cineapp">
+package="com.example.cineapp">
 
-    <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="36" />
+<uses-sdk
+    android:minSdkVersion="24"
+    android:targetSdkVersion="36" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.CineApp"
-        android:usesCleartextTraffic="true">
+<application
+    android:allowBackup="true"
+    android:dataExtractionRules="@xml/data_extraction_rules"
+    android:fullBackupContent="@xml/backup_rules"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.CineApp"
+    android:usesCleartextTraffic="true">
 
-        <!-- FILE PROVIDER PARA PDF -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.cineapp.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
+    <!-- FILE PROVIDER PARA PDF -->
+    <provider
+        android:name="androidx.core.content.FileProvider"
+        android:authorities="com.example.cineapp.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+    </provider>
 
-        <!-- ACTIVIDADES -->
-        <activity android:name="com.example.cineapp.Reservar" android:exported="false"/>
-        <activity android:name="com.example.cineapp.DetallePeliculaActivity" android:exported="false"/>
-        <activity android:name="com.example.cineapp.EditarPrecio" android:exported="false"/>
-        <activity android:name="com.example.cineapp.RegistrarPrecio" android:exported="false"/>
+    <!-- ACTIVIDADES -->
+    <activity
+        android:name="com.example.cineapp.Reservar"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.DetallePeliculaActivity"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.EditarPrecio"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.RegistrarPrecio"
+        android:exported="false" />
 
-        <activity android:name="com.example.cineapp.Login" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+    <activity
+        android:name="com.example.cineapp.Login"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-        <activity android:name="com.example.cineapp.MainActivity" android:exported="false"/>
-        <activity android:name="com.example.cineapp.RegistroUs" android:exported="false"/>
-        <activity android:name="com.example.cineapp.contrasena" android:exported="false"/>
-        <activity android:name="com.example.cineapp.BuscarPelicula" android:exported="false"/>
-        <activity android:name="com.example.cineapp.BuscarCine" android:exported="false"/>
-        <activity android:name="com.example.cineapp.VerPrecios" android:exported="false"/>
-        <activity android:name="com.example.cineapp.Horario" android:exported="false"/>
-        <activity android:name="com.example.cineapp.Boleto" android:exported="false"/>
-        <activity android:name="com.example.cineapp.RegistroPeliculas" android:exported="false"/>
-        <activity android:name="com.example.cineapp.RestablecerContrasena" android:exported="false"/>
+    <activity
+        android:name="com.example.cineapp.MainActivity"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.RegistroUs"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.contrasena"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.BuscarPelicula"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.BuscarCine"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.VerPrecios"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.Horario"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.Boleto"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.RegistroPeliculas"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.RestablecerContrasena"
+        android:exported="false" />
+    <activity
+        android:name="com.example.cineapp.TopPeliculas"
+        android:exported="false" />
 
-    </application>
+</application>
 
 </manifest>
+
+
+
 

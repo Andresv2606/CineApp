@@ -28,6 +28,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageButton
+            android:id="@+id/btn_salir"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="Apagar"
+            app:srcCompat="@android:drawable/ic_lock_power_off"
+            app:tint="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/header"
+            app:layout_constraintBottom_toBottomOf="@id/header"/>
+
 
         <TextView
             android:id="@+id/title"

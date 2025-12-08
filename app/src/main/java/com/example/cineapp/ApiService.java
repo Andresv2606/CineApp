@@ -17,6 +17,7 @@ import com.example.cineapp.models.PrecioResponse;
 import com.example.cineapp.models.RegistroResponse;
 import com.example.cineapp.models.ReservaRequest;
 import com.example.cineapp.models.ReservaResponse;
+import com.example.cineapp.models.TopPelicula;
 
 import java.util.List;
 
@@ -100,4 +101,8 @@ public interface ApiService {
     Call<List<Cine>> getCines();
     @GET("cines/buscar")
     Call<List<Cine>> buscarCine(@Query("nombre") String nombre);
+    @GET("reservas/top")
+    Call<List<TopPelicula>> getTopPeliculas();
+
+
 }
