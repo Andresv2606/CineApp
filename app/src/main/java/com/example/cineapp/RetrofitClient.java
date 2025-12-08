@@ -9,8 +9,7 @@ public class RetrofitClient {
 
     private static Retrofit retrofit = null;
     // cambiar siempre la url por ip
-    private static final String BASE_URL = "http://192.168.1.77/cine_api/public/";
-
+    private static final String BASE_URL = "http://192.168.1.8/cine_api/public/";
 
     public static ApiService getApiService() {
 

@@ -53,6 +53,7 @@
         <activity android:name="com.example.cineapp.Horario" android:exported="false"/>
         <activity android:name="com.example.cineapp.Boleto" android:exported="false"/>
         <activity android:name="com.example.cineapp.RegistroPeliculas" android:exported="false"/>
+        <activity android:name="com.example.cineapp.RestablecerContrasena" android:exported="false"/>
 
     </application>
 

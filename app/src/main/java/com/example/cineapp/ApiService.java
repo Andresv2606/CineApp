@@ -1,5 +1,7 @@
 package com.example.cineapp;
 
+import com.example.cineapp.models.CambiarPassRequest;
+import com.example.cineapp.models.CambiarPassResponse;
 import com.example.cineapp.models.Cine;
 import com.example.cineapp.models.HorarioResponse;
 import com.example.cineapp.models.LoginRequest;
@@ -74,6 +76,14 @@ public interface ApiService {
     // === AUTENTICACIÓN ===
     @POST("auth")
     Call<LoginResponse> login(@Body LoginRequest request);
+
+    // Recuperar Contraseña
+    @POST("password_reset/solicitar")
+    Call<CambiarPassResponse> solicitar(@Body CambiarPassRequest request);
+    @POST("password_reset/verificar")
+    Call<CambiarPassResponse> verificar(@Body CambiarPassRequest request);
+    @POST("password_reset/cambiar")
+    Call<CambiarPassResponse> cambiar(@Body CambiarPassRequest request);
 
     @POST("personas")
     Call<RegistroResponse> registrarPersona(@Body Persona persona);

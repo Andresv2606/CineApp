@@ -36,23 +36,23 @@
             android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Olvidé mi contraseña"
+            android:layout_marginTop="8dp"
+            android:text="Cambiar Contraseña"
             android:textColor="#000000"
             android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
+            android:textStyle="bold" />
 
 
         <TextView
             android:id="@+id/tvDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresa tu correo electrónico para recibir un enlace y restablecer tu contraseña."
-            android:textColor="#666666"
-            android:textSize="14sp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:paddingHorizontal="16dp" />
+            android:paddingHorizontal="16dp"
+            android:text="Ingresa la contraseña nueva y confirma para actualizarla"
+            android:textColor="#666666"
+            android:textSize="14sp" />
 
 
         <EditText
@@ -60,13 +60,25 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:hint="Correo electrónico"
             android:background="@drawable/rounded_edittext"
+            android:hint="Contraseña"
+            android:inputType="textEmailAddress"
             android:paddingHorizontal="16dp"
             android:textColor="#000000"
-            android:textColorHint="#AAAAAA"
-            android:inputType="textEmailAddress" />
+            android:textColorHint="#AAAAAA" />
 
+
+        <EditText
+            android:id="@+id/txtContraseñaCon"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Confirmar Contraseña"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#AAAAAA" />
 
         <Button
             android:id="@+id/btnConfirmar"
@@ -75,38 +87,11 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:backgroundTint="#E53935"
-            android:text="Enviar"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            tools:visibility="visible" />
-
-        <EditText
-            android:id="@+id/txtCodigo"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Codigo de Verificacion"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="16dp"
-            android:textColor="#000000"
-            android:textColorHint="#AAAAAA"
-            tools:visibility="gone" />
-
-
-        <Button
-            android:id="@+id/btnRestablecer"
-            android:layout_width="236dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="#E53935"
             android:text="Confirmar"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/tvVolverLogin"
